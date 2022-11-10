@@ -1,0 +1,242 @@
+@charset "utf-8"; /* 文字コード「utf-8」を指定 */
+
+/* 外部CSS */
+@import url(reset.css); /* デフォルトCSSをリセットする */
+@import url(clearfix.css); /* float解除用 */
+
+
+/*** 基本設定 ここから↓ ***/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;   /* フォントの種類 */
+  font-size: 16px;  /* 基本サイズ p要素 */
+  /* background-color: #edfefe; */
+  height: 100vh;
+  background-color: whitesmoke;
+}
+
+h1 {
+  font-size: 175%;  /* 28px */
+}
+
+h2 {
+  font-size: 150%;  /* 24px */
+}
+
+h3 {
+  font-size: 125%;  /* 20px */
+}
+
+
+/*** 基本設定 ここまで↑ ***/
+
+
+/*** #all ここから↓ ***/
+#all {
+  margin-top: 30px;
+  padding-left: 25px;
+}
+/*** #all ここまで↑ ***/
+
+/*** header ここから↓ ***/
+header {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 50px;
+  background-color: #def7ff;
+}
+
+.wrapper {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-left {
+  margin: auto 10px;
+}
+
+.header-right {
+  display: flex;
+}
+
+.user-icon {
+  margin: auto 25px;
+}
+
+.name {
+  margin: auto 25px;
+}
+/*** header ここまで↑ ***/
+
+
+/* 2カラム */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+
+.col {
+  width: 100%;
+  display: flex;
+  display: -ms-flexbox;
+  /* IE10 */
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  /* IE10 */
+  background-color: #FFFFFF;
+  /* 背景の色 */
+  color: gray;
+  /* 文字の色 */
+  text-align: center;
+  /* 内容は中央配置 */
+}
+
+.col>div {
+  /* width: 33.33333%; */
+  padding: 10px;
+}
+
+.col_2 {
+  flex-basis: 70%;
+  flex-grow: 1;
+  /* border-top: 1px solid gray; */
+  background-color: #FFFFFF;
+}
+
+
+/*** サイドメニュー ここから↓ ***/
+.navigation {
+  position: relative;
+  /* height: 500px; 最初はこれ*/
+  height: 100vh;
+  width: 275px;
+  /* width: 60px; */
+  background-color: lightgray;
+  box-shadow: 1px 0 0 #FFFFFF;
+  /* border-left: 10px solid lightblue; */
+  overflow-x: hidden;
+  transition: all 0.5s;
+  flex-basis: 20%;
+}
+
+/* .navigation:hover {
+  width: 300px;
+} */
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 10px;
+}
+
+.navigation ul li {
+  list-style: none;
+  display: block;
+  position: relative;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.navigation ul li:hover {
+  background-color: silver;
+}
+
+.navigation ul li.active {
+  background-color: #FFFFFF;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.navigation ul li a {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: black;
+  width: 100%;
+  display: flex;
+}
+
+/* あとで */
+.navigation ul li.active a::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  /* background-color: red; */
+  top: -30px;
+  right: 0;
+  border-radius: 50%;
+  box-shadow: 15px 15px 0 #FFFFFF;
+}
+.navigation ul li.active a::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  /* background-color: red; */
+  top: 60px;
+  right: 0;
+  border-radius: 50%;
+  box-shadow: 15px -15px 0 #FFFFFF;
+}
+
+.navigation ul li a .icon {
+  display: block;
+  min-width: 45px;
+  height: 60px;
+  line-height: 70px;
+  text-align: center;
+}
+
+.navigation ul li a .icon ion-icon {
+  font-size: 1.5em;
+}
+
+.navigation ul li a .title {
+  padding-left: 10px;
+  height: 60px;
+  line-height: 60px;
+  white-space: nowrap;
+}
+
+
+.btn {
+  margin-right: 10px;
+}
+
+.btn1 {
+  margin-top: 20px;
+}
+
+
+/*** サイドメニュー ここまで↑ ***/
+
+
+
+
+
+
+
+
+
+
+
+/*** footer ここから↓ ***/
+footer {
+  height: 15px;
+  background-color: whitesmoke;
+}
+/*** footer ここまで↑ ***/
