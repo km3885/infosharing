@@ -46,7 +46,7 @@ public class StuinfoServlet extends HttpServlet {
 		// リクエストパラメータの取得
 		request.setCharacterEncoding("UTF-8");
 		String stuName = request.getParameter("stu_name");
-		// System.out.println(stuName);
+		System.out.println(stuName);
 		
 		// DBから訓練生情報取得し表示
 		// 訓練生インスタンスを生成

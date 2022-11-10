@@ -81,12 +81,12 @@
         <div class="dd-list">
           <label for="stu_name">名前:</label>
           <select name="stu_name">
-	          <option value="">▼選択してください</option>
-	          <option>洲鎌 碧</option>
-	          <option>鈴木 太一</option>
-	          <option>高橋 藍</option>
-	          <option>田中 志郎</option>
-	          <option>斎藤 日向</option>
+	          <option>▼選択してください</option>
+	          <option value="2301">洲鎌 碧</option>
+	          <option value="2302">鈴木 太一</option>
+	          <option value="2303">高橋 藍</option>
+	          <option value="2304">田中 志郎</option>
+	          <option value="2305">斎藤 日向</option>
           </select>
           <button>見る</button>
         </div>
