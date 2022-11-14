@@ -1,0 +1,119 @@
+@charset "utf-8";
+
+@import url(reset.css); /* デフォルトCSSをリセット */
+@import url(clearfix.css); /* float解除用 */
+@import url(common.css); 
+
+/* *** コンテンツ ↓ *** */
+.form-wrapper {
+  display: block;
+  position: relative;
+  /* width: 300px; */
+  width: 230px;
+  /* padding: 20px; */
+  padding: 20px 20px 40px;
+  /* margin: 20px auto; */
+  margin: 80px auto 30px;
+  background-color: #ccf2ff;
+  border-radius: 5px;
+}
+
+.form-wrapper .account-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0px auto 20px;
+  border: 3px solid #2B2C34;
+  border-radius: 100%;
+  background-color: #fff;
+  pointer-events: none;
+}
+
+.form-wrapper .account-icon::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: '\f406';
+  text-align: center;
+  display: block;
+  height: 100%;
+  line-height: 100px;
+  font-size: 4.1em;
+}
+
+/* ** フォーム ** */
+.form-wrapper .form-item {
+  position: relative;
+}
+
+.label-text {
+  font-size: 16px;
+  margin-bottom: 1px;
+}
+
+.form-wrapper .form-item i {
+  position: absolute;
+  top: 27px;
+  left: 10px;
+}
+
+.form-wrapper .form-item i.fa-solid::before {
+  color: #538a9a;
+  opacity: 0.4;
+  /* transition: opacity 300ms 0 ease; 無効 */
+}
+
+.form-wrapper input[type="text"],
+.form-wrapper input[type="password"] {
+  padding: 10px 12px 10px 32px;
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid #2B2C34;
+  background-color: #fff;
+  color: #333;
+  /* font-size: 1em; */
+  font-weight: 300;
+  outline: none;
+  border-radius: 5px;
+  /* transition: border-color 300ms 0 ease; */
+  box-sizing: border-box;
+}
+
+.form-wrapper input[type="text"]:focus + i.fa-solid::before,
+.form-wrapper input[type="password"]:focus + i.fa-solid::before {
+  opacity: 1;
+}
+
+.form-wrapper input[type="submit"] {
+  /* height: 31px; */
+  padding: 5px;
+  /* padding: 10px 12px; */
+  margin-bottom: 10px;
+  background-color: #6246EA;
+  /* text-transform: uppercase; */
+  color: #FFFFFE;
+  font-weight: bold;
+  border: 1px solid #2B2C34;
+  float: right;
+  margin: 0;
+  /* outline: none; */
+  border-radius: 5px;
+}
+
+.form-wrapper input[type="submit"]:hover {
+  background-color: #755EEB;
+}
+
+.form-wrapper input[type="submit"]:active {
+  background-color: #2700EB;
+}
+
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+.cf:after {
+  clear: both;
+}
+
+/* *** コンテンツ ↑ *** */
