@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/common.css">
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/styleadmin.css">
   <title>訓練生情報</title>
 </head>
 
@@ -78,8 +79,50 @@
     </aside>
 
     <!-- コンテンツ -->
-    <div class="col_2 stu-col2">
-      ここに内容1
+    <div class="contents">
+      <!-- 就活状況 -->
+      <div class="first-elements">
+        <input id="TAB02-01" type="radio" name="TAB02" class="tab-switch" checked="checked" /><label class="tab-label"
+          for="TAB02-01">内定</label>
+        <div class="tab-content">
+
+        </div>
+        <input id="TAB02-02" type="radio" name="TAB02" class="tab-switch" /><label class="tab-label"
+          for="TAB02-02">選考中</label>
+        <div class="tab-content">
+
+        </div>
+        <input id="TAB02-03" type="radio" name="TAB02" class="tab-switch" /><label class="tab-label"
+          for="TAB02-03">書類作成中</label>
+        <div class="tab-content">
+
+        </div>
+        <input id="TAB02-04" type="radio" name="TAB02" class="tab-switch" /><label class="tab-label"
+          for="TAB02-04">応募済み</label>
+        <div class="tab-content">
+
+        </div>
+        <input id="TAB02-05" type="radio" name="TAB02" class="tab-switch" /><label class="tab-label"
+          for="TAB02-05">未応募</label>
+        <div class="tab-content">
+
+        </div>
+        <input id="TAB02-06" type="radio" name="TAB02" class="tab-switch" /><label class="tab-label"
+          for="TAB02-06">ボタン６</label>
+        <div class="tab-content">
+
+        </div>
+      </div>
+
+      <!-- カレンダー -->
+      <div class="second-elements">
+        内容2
+      </div>
+
+      <!-- 掲示板 -->
+      <div class="third-elements">
+        内容3
+      </div>
     </div>
 
     <!-- <div class="col_3">

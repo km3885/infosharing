@@ -1,21 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<h2>ログイン画面テスト</h2>
-	<form action="LoginServlet" method="post">
-		userID:<input type="text" name="userId"><br>
-		pass: <input type="password" name="pass"><br>
-		<input type="submit" value="ログイン">
-	</form>
-</body>
-</html>
- -->
  
  <!DOCTYPE html>
 <html lang="ja">
@@ -27,15 +11,14 @@
     <link href="https://use.fontawesome.com/releases/v6.2.0/css/all.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/style.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/login.css">
-<!-- 
-<link rel=”stylesheet” type=”text/css” href=”/css/style.css”>
- -->
+<!-- <link rel="stylesheet" href="css/style.css"> -->
+
 </head>
 <body>
     <header>
         <div class="wrapper">
             <div class="header-left">
-              <h1>タイトルタイトルタイトル</h1>
+              <h1>就職活動情報共有ツール</h1>
             </div>
             <div class="header-right">
             </div>
