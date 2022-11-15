@@ -5,7 +5,14 @@ import java.io.Serializable;
 public class AccountBean implements Serializable {
 	private String userId;
 	private String pass;
+	private boolean role;
 	
+	public boolean isRole() {
+		return role;
+	}
+	public void setRole(boolean role) {
+		this.role = role;
+	}
 	public AccountBean() {
 		
 	}

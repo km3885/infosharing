@@ -58,6 +58,7 @@ public class LoginServlet extends HttpServlet {
 					HttpSession session = request.getSession();
 					session.setAttribute("userId", userId);
 					
+					
 					// top.jspへフォワード
 					RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/index.jsp");
 					dispatcher.forward(request, response);

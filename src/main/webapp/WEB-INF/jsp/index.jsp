@@ -20,9 +20,11 @@
               </div>
               <div class="header-right">
                   <ion-icon name="person-circle-outline" class="user-icon"></ion-icon>
+                  <!-- 
                   <ion-icon name="person-circle" class="user-icon"></ion-icon>
                   <ion-icon name="person-circle-sharp" class="user-icon"></ion-icon>
-                  <p class="name">ログインID</p>
+                   -->
+                  <p class="name">ログイン氏名</p>
               </div>
           </div>
       </header>

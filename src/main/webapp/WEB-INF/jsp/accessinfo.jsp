@@ -20,8 +20,6 @@
               </div>
               <div class="header-right">
                   <ion-icon name="person-circle-outline" class="user-icon"></ion-icon>
-                  <ion-icon name="person-circle" class="user-icon"></ion-icon>
-                  <ion-icon name="person-circle-sharp" class="user-icon"></ion-icon>
                   <p class="name">ログインID</p>
               </div>
           </div>
@@ -39,7 +37,7 @@
             <span class="title">ホーム</span>
           </a>
         </li>
-        <li class="list active">
+        <li class="list">
           <a href="StuinfoServlet">
             <span class="icon">
               <ion-icon name="people-circle-outline"></ion-icon>
@@ -55,7 +53,7 @@
             <span class="title">イベント管理</span>
           </a>
         </li>
-        <li class="list">
+        <li class="list active">
           <a href="AccessInfoServlet">
             <span class="icon">
               <ion-icon name="shield-checkmark-outline"></ion-icon>
