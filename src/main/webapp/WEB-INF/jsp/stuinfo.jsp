@@ -79,22 +79,22 @@
       <h2>訓練生情報</h2>
       <form method="post" action="StuinfoServlet">
         <div class="dd-list">
-          <label for="stu_name">名前:</label>
+          <label for="name">名前:</label>
           <select name="stu_name">
 	          <option>▼選択してください</option>
-	          <option value="2301">洲鎌 碧</option>
-	          <option value="2302">鈴木 太一</option>
-	          <option value="2303">高橋 藍</option>
-	          <option value="2304">田中 志郎</option>
-	          <option value="2305">斎藤 日向</option>
+	          <option value="2401">佐藤 碧</option>
+	          <option value="2402">鈴木 陽葵</option>
+	          <option value="2403">高橋 陽翔</option>
+	          <option value="2404">田中 凛</option>
+	          <option value="2405">伊藤 蒼</option>
           </select>
           <button>見る</button>
         </div>
       </form>
       <!-- <form method="post">
         <div>
-          <label for="statu">状況</label>
-          <select name="statu">
+          <label for="state">状況</label>
+          <select name="state">
           <option value="">選択してください</option>
           <option value="">内定</option>
           <option value="">選考中</option>
@@ -104,6 +104,11 @@
           </select>
         </div>
       </form> -->
+    </div>
+    
+    <div>
+    	<p>結果</p>
+    	<%= request.getAttribute("stu") %>
     </div>
   </div>
 

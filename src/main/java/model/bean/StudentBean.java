@@ -4,19 +4,25 @@ import java.io.Serializable;
 
 public class StudentBean implements Serializable {
 		private int id;
-		private int no;
+		private String no;
 		private String name;
-		private String statu;
+		private String state;
 		
 		// コンストラクタ
 		public StudentBean() {
 		}
 		
-		 // コンストラクタ引数4(id, no, name, statu)
-		public StudentBean(int id, int no, String name, String statu) {
+		// コンストラクタ引数1(no)
+		public StudentBean(String no) {
+			this.no = no;
+		}
+		
+		 // コンストラクタ引数4(id, no, name, state)
+		public StudentBean(int id, String no, String name, String state) {
+			this.id = id;
 			this.no = no;
 			this.name = name;
-			this.statu = statu;
+			this.state = state;
 		}
 		
 		public int getId() {
@@ -27,11 +33,11 @@ public class StudentBean implements Serializable {
 			this.id = id;
 		}
 		
-		public int getNo() {
+		public String getNo() {
 			return no;
 		}
 
-		public void setNo(int no) {
+		public void setNo(String no) {
 			this.no = no;
 		}
 
@@ -43,12 +49,12 @@ public class StudentBean implements Serializable {
 			this.name = name;
 		}
 
-		public String getStatu() {
-			return statu;
+		public String getstate() {
+			return state;
 		}
 
-		public void setStatu(String statu) {
-			this.statu = statu;
+		public void setstate(String state) {
+			this.state = state;
 		}
 
 

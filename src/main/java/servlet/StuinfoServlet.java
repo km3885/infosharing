@@ -8,8 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import model.LoginLogic;
 import model.StuInfoLogic;
+import model.bean.LoginBean;
 import model.bean.StudentBean;
 
 /**
@@ -45,18 +48,19 @@ public class StuinfoServlet extends HttpServlet {
 		
 		// リクエストパラメータの取得
 		request.setCharacterEncoding("UTF-8");
-		String stuName = request.getParameter("stu_name");
-		System.out.println(stuName);
+		String stuNo = request.getParameter("stu_name");
 		
-		// DBから訓練生情報取得し表示
-		// 訓練生インスタンスを生成
-		StudentBean stu = new StudentBean();
-		stu.setName(stuName);
-		StuInfoLogic bo = new StuInfoLogic();
+		// ログイン処理の実行
+		StudentBean stu = new StudentBean(stuNo);
+		StuInfoLogic bo = new StuInfoLogic(); 
 		StudentBean stu1 = bo.execute(stu);
 		
-		// 取得した訓練生の情報をリクエストスコープに保存
-		request.setAttribute("stu1", stu1);
+		// ログイン処理の成否によって処理を分岐
+		if (stu1 != null) {
+			// ログイン成功
+			// セッションスコープにユーザIDを保存
+			HttpSession session = request.getSession();
+			session.setAttribute("stu", stu1);
 		
 		// stuinfo.jspへフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinfo.jsp");
