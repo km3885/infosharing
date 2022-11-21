@@ -26,9 +26,10 @@ public class StudentDAO {
 			Connection con = DriverManager.getConnection(URL, USER, PASS);
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM students WHERE no = ?";
+			// String sql = "SELECT * FROM students WHERE no = ?";
+			String sql = "SELECT * FROM students";
 			PreparedStatement pStmt = con.prepareStatement(sql);
-			pStmt.setString(1, stu.getNo());
+			// pStmt.setString(1, stu.getNo());
 
 			// SELECT文を実行し、結果票を取得
 			ResultSet rs = pStmt.executeQuery();
