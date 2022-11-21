@@ -77,7 +77,7 @@
     <!-- contents -->
     <div class="col_2 stu-col2">
       <h2>訓練生情報</h2>
-      <form method="post" action="StuinfoServlet">
+      <form action="<%= request.getContextPath() %>/StuinfoServlet" method="post">
         <div class="dd-list">
           <label for="name">名前:</label>
           <select name="stu_name">
