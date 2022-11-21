@@ -8,12 +8,11 @@
 .form-wrapper {
   display: block;
   position: relative;
-  /* width: 300px; */
   width: 230px;
   /* padding: 20px; */
   padding: 20px 20px 40px;
   /* margin: 20px auto; */
-  margin: 80px auto 30px;
+  margin: 130px auto 30px;
   background-color: #ccf2ff;
   border-radius: 5px;
 }
