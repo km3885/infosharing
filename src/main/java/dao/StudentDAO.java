@@ -19,15 +19,16 @@ public class StudentDAO {
 	// 訓練生情報取得
 	public StudentBean findStudent(StudentBean stu) {
 		StudentBean stu1 = null;
+		// SELECT文を準備
+		String sql = "SELECT * FROM students WHERE no = ?";
 
 		// データベースへ接続
-		try {
+		try (
+				Connection con = DriverManager.getConnection(URL, USER, PASS);
+				PreparedStatement pStmt = con.prepareStatement(sql);
+			) {
 			Class.forName(RDB_DRIVE);
-			Connection con = DriverManager.getConnection(URL, USER, PASS);
-
-			// SELECT文を準備
-			String sql = "SELECT * FROM students WHERE no = ?";
-			PreparedStatement pStmt = con.prepareStatement(sql);
+			System.out.println("success");
 			pStmt.setString(1, stu.getNo());
 
 			// SELECT文を実行し、結果票を取得
