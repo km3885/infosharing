@@ -50,6 +50,7 @@ public class StuinfoServlet extends HttpServlet {
 		// リクエストパラメータの取得
 		request.setCharacterEncoding("UTF-8");
 		String stuNo = request.getParameter("stu_name");
+		// System.out.println("パラメータは" + stuNo);
 
 		// ログイン処理の実行
 		StudentBean stu = new StudentBean(stuNo);
