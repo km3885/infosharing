@@ -50,22 +50,30 @@ header {
 }
 
 .wrapper {
-	padding-top: 5px;
-	padding-bottom: 5px;
+	/*padding-top: 5px;
+	padding-bottom: 5px;*/
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
+	height: 100%;
 }
 
 .header-left {
+	display: flex;
+	align-items: center;
 	margin: auto 10px;
 }
 
 .header-right {
 	display: flex;
+	align-items: center;
+	height: 100%;
 }
 
 .user-icon {
-	margin: auto 25px;
+	/*margin: auto 25px;*/
+	margin-left: 25px;
+	font-size: 45px
 }
 
 .name {
@@ -219,8 +227,8 @@ footer {
 	width: 100%;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	background-color: red;
-	position: absolute;
+	background-color: #def7ff;
+	/*position: absolute;*/
 	bottom: 0;
 }
 

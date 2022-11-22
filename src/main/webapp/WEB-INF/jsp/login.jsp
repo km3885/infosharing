@@ -31,13 +31,13 @@
         </div>
         <form action="LoginServlet" method="post">
             <div class="form-item">
-                <label><div class="label-text">ユーザーID</div>
+                <label>ユーザーID
                     <input type="text" name="userId" id="" placeholder="User ID">
                     <i class="fa-solid fa-user"></i>
                 </label>
             </div>
             <div class="form-item">
-                <label><div class="label-text">パスワード</div>
+                <label>パスワード
                     <input type="password" name="pass" id="pass" placeholder="Password">
                     <i class="fa-solid fa-lock"></i>
                 </label>
@@ -48,9 +48,7 @@
         </form>
     </div>
 
-    <footer>
-    <p><small>&copy; 2022 モーリー</small></p>
-    </footer>
+	<jsp:include page ="footer.jsp" />
 
 </body>
 </html>

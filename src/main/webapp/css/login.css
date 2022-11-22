@@ -42,12 +42,12 @@
 .form-wrapper .form-item {
   position: relative;
 }
-
+/*
 .label-text {
   font-size: 16px;
   margin-bottom: 1px;
 }
-
+*/
 .form-wrapper .form-item i {
   position: absolute;
   top: 27px;

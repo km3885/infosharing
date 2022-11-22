@@ -1,138 +1,71 @@
 @charset "UTF-8";
 
-.first-elements {
-	background: White;
-	box-shadow: 0 0 5px rgba(0,0,0,.1);
-	display: flex;
-	flex-wrap: wrap;
-	overflow: hidden;
-	padding: 0 0 20px;
+/* メイン */
+.main {
+  margin: 0;
+  background-color: white;
+}
+
+.tab-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.tab-wrap:after {
+  content: '';
+  width: 100%;
+  height: 3px;
+  /* background: DeepSkyBlue; */
+  display: block;
+  order: -1;
 }
 
 .tab-label {
-	color: Gray;
-	cursor: pointer;
-	flex: 1;
-	font-weight: bold;
-	order: -1;
-	padding: 12px 12px;
-	position: relative;
-	text-align: center;
-	transition: cubic-bezier(0.4, 0, 0.2, 1) .2s;
-	user-select: none;
-	white-space: nowrap;
-	-webkit-tap-highlight-color: transparent;
-    border-bottom: solid 1px skyblue;
+  color: gray;
+  background: white;
+  font-weight: bold;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, .2);
+  white-space: nowrap;
+  text-align: center;
+  padding: 10px .5em;
+  order: -1;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  border-radius: 5px 5px 0 0;
+  flex: 1;
 }
 
-.tab-label:hover {
-	background: rgba(0, 191, 255,.1);
-}
 
-.tab-switch:checked + .tab-label {
-	color: DeepSkyBlue;
-}
-
-.tab-label::after {
-	background: DeepSkyBlue;
-	bottom: 0;
-	content: '';
-	display: block;
-	height: 3px;
-	left: 0;
-	opacity: 0;
-	pointer-events: none;
-	position: absolute;
-	transform: translateX(100%);
-	transition: cubic-bezier(0.4, 0, 0.2, 1) .2s 80ms;
-	width: 100%;
-	z-index: 1;
-}
-
-.tab-switch:checked ~ .tab-label::after {
-	transform: translateX(-100%);
-}
-
-.tab-switch:checked + .tab-label::after {
-	opacity: 1;
-	transform: translateX(0);
+.tab-label:not(:last-of-type) {
+  margin-right: 0;
 }
 
 .tab-content {
-	height:0;
-	opacity:0;
-	padding: 0 20px;
-	pointer-events:none;
-	transform: translateX(-30%);
-	transition: transform .3s 80ms, opacity .3s 80ms;
-	width: 100%;
-}
-
-.tab-switch:checked ~ .tab-content {
-	transform: translateX(30%);
-}
-
-.tab-switch:checked + .tab-label + .tab-content {
-	height: auto;
-	opacity: 1;
-	order: 1;
-	pointer-events:auto;
-	transform: translateX(0);
-}
-
-.first-elements::after {
-	content: '';
-	height: 20px;
-	order: -1;
-	width: 100%;
-}
-
-.tab-switch {
-	display: none;
-}
-
-/* ============================== */
-
-
-
-/* 幅と高さの設定 */
-
-.tab-container,
-.tab-content {
-	max-width: calc(100vw - 10px*2);
-	width: 600px;
-}
-
-.first-elements {
-	width: 1000px;
-}
-
-
-/* 追加(上書き有り)CSS */
-
-* {
-	box-sizing: border-box;
-}
-
-.tab-container {
-	box-shadow: 0 0 5px rgba(0,0,0,.1);
+  width: 100%;
+  height: 0;
   overflow: hidden;
-	overflow-x: auto;
-	position: relative;
-}
-.first-elements {
-	box-shadow: none;
-	overflow: visible;
-}
-.tab-content {
-	left:0;
-  position: -webkit-sticky;
-	position: sticky;
+  opacity: 0;
 }
 
-.first-elements::before {
-	content: '';
-	height: 0;
-	order: 1;
-	width: 100%;
+/* アクティブなタブ */
+.tab-switch:checked+.tab-label {
+  /* background: white; */
+  border-bottom: 3px solid deepskyblue;
+  color: deepskyblue;
+}
+
+.tab-switch:checked+.tab-label+.tab-content {
+  height: auto;
+  overflow: auto;
+  padding: 15px;
+  opacity: 1;
+  transition: .5s opacity;
+  box-shadow: 0 0 3px rgba(0, 0, 0, .2);
+}
+
+/* ラジオボタン非表示 */
+.tab-switch {
+  display: none;
 }
