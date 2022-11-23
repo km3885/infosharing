@@ -17,7 +17,7 @@
 	<!-- header -->
 	<jsp:include page="header.jsp" />
 
-
+	
 	<div class="col">
 		<!-- サイドメニュー -->
 		<aside class="navigation">
