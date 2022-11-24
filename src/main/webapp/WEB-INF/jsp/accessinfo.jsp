@@ -147,7 +147,7 @@
 
 
 
-  <footer>フッター</footer>
+ 	<jsp:include page="footer.jsp" />
 
  <!-- <script src="js/main.js"></script> -->
 

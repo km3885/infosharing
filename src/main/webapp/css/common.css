@@ -228,7 +228,7 @@ footer {
 	padding-top: 10px;
 	padding-bottom: 10px;
 	background-color: #def7ff;
-	position: absolute;
+	/* position: absolute; */
 	bottom: 0;
 }
 

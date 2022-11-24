@@ -16,7 +16,7 @@ public class StudentDAO {
 	private final String USER = "root";
 	private final String PASS = "";
 
-	// 訓練生情報取得
+	// 訓練生情報取得(1人)
 	public StudentBean findStudent(StudentBean stu) {
 		StudentBean stu1 = null;
 		// SELECT文を準備
@@ -25,8 +25,7 @@ public class StudentDAO {
 		// データベースへ接続
 		try (
 				Connection con = DriverManager.getConnection(URL, USER, PASS);
-				PreparedStatement pStmt = con.prepareStatement(sql);
-			) {
+				PreparedStatement pStmt = con.prepareStatement(sql);) {
 			Class.forName(RDB_DRIVE);
 			System.out.println("success");
 			pStmt.setString(1, stu.getNo());
