@@ -15,6 +15,7 @@
 
 </head>
 <body>
+<div class = "container">
     <header>
         <div class="wrapper">
             <div class="header-left">
@@ -49,6 +50,6 @@
     </div>
 
 	<jsp:include page ="footer.jsp" />
-
+</div>
 </body>
 </html>

@@ -228,11 +228,18 @@ footer {
 	padding-top: 10px;
 	padding-bottom: 10px;
 	background-color: #def7ff;
-	/*position: absolute;*/
+	position: absolute;
 	bottom: 0;
 }
 
 footer p {
 	text-align: center;
+}
+
+.container {
+	position: relative;
+	padding-bottom: 36px;
+	box-sizing: border-box;
+	min-height: 100vh;
 }
 /*** footer ここまで↑ ***/
