@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ page import="model.bean.StudentBean" %>
+	
+	
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -17,7 +20,7 @@
 	<!-- header -->
 	<jsp:include page="header.jsp" />
 
-	
+
 	<div class="col">
 		<!-- サイドメニュー -->
 		<aside class="navigation">
@@ -49,23 +52,29 @@
 		<!-- メイン -->
 		<article class="main">
 			<h1>就職活動状況</h1>
+			<!-- 
 			<div class="tab-wrap">
-				<input id="TAB02-01" type="radio" name="TAB02" class="tab-switch"
-					checked="checked" /><label class="tab-label" for="TAB02-01">内定</label>
-				<div class="tab-content">コンテンツ 1</div>
-				<input id="TAB02-02" type="radio" name="TAB02" class="tab-switch" /><label
-					class="tab-label" for="TAB02-02">選考中</label>
-				<div class="tab-content">コンテンツ 2</div>
-				<input id="TAB02-03" type="radio" name="TAB02" class="tab-switch" /><label
-					class="tab-label" for="TAB02-03">書類作成中</label>
-				<div class="tab-content">コンテンツ 3</div>
-				<input id="TAB02-04" type="radio" name="TAB02" class="tab-switch" /><label
-					class="tab-label" for="TAB02-04">応募済み</label>
-				<div class="tab-content">コンテンツ 4</div>
-				<input id="TAB02-05" type="radio" name="TAB02" class="tab-switch" /><label
-					class="tab-label" for="TAB02-05">未応募</label>
-				<div class="tab-content">コンテンツ 5</div>
-			</div>
+			 -->
+				<form action="StuinfoServlet" method="get" class="tab-wrap">
+					<input id="TAB02-01" type="radio" name="TAB02" class="tab-switch"
+						checked="checked" /><label class="tab-label" for="TAB02-01">内定</label>
+					<div class="tab-content">コンテンツ 1
+					
+					</div>
+					<input id="TAB02-02" type="radio" name="TAB02" class="tab-switch" /><label
+						class="tab-label" for="TAB02-02">選考中</label>
+					<div class="tab-content">コンテンツ 2</div>
+					<input id="TAB02-03" type="radio" name="TAB02" class="tab-switch" /><label
+						class="tab-label" for="TAB02-03">書類作成中</label>
+					<div class="tab-content">コンテンツ 3</div>
+					<input id="TAB02-04" type="radio" name="TAB02" class="tab-switch" /><label
+						class="tab-label" for="TAB02-04">応募済み</label>
+					<div class="tab-content">コンテンツ 4</div>
+					<input id="TAB02-05" type="radio" name="TAB02" class="tab-switch" /><label
+						class="tab-label" for="TAB02-05">未応募</label>
+					<div class="tab-content">コンテンツ 5</div>
+				</form>
+			<!-- </div> -->
 		</article>
 
 		<!-- 掲示板 -->

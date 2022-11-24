@@ -34,7 +34,10 @@ public class StuinfoServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
+		// 訓練生情報取得(リスト化)
+		request.setCharacterEncoding("UTF-8");
+		
 		// stuinfo.jspへフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinfo.jsp");
 		dispatcher.forward(request, response);

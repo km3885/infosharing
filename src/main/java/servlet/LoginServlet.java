@@ -1,8 +1,10 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.LoginLogic;
+import model.StuInfoLogic;
 import model.bean.LoginBean;
+import model.bean.StudentBean;
 
 /**
  * Servlet implementation class sample
@@ -57,6 +61,14 @@ public class LoginServlet extends HttpServlet {
 					// セッションスコープにユーザIDを保存
 					HttpSession session = request.getSession();
 					session.setAttribute("userId", userId);
+				
+				// 訓練生情報の取得
+				StuInfoLogic sl = new StuInfoLogic();
+				List<StudentBean> stuList = sl.execute();
+					
+				// 訓練生情報をアプリケーションスコープに保存
+					ServletContext application = this.getServletContext();
+					application.setAttribute("stulist", stuList);
 					
 					
 					// top.jspへフォワード

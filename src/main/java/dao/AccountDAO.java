@@ -18,6 +18,7 @@ public class AccountDAO {
 	private final String PASS = "";
 	
 
+	// 訓練生情報取得（1人分）
 	public AccountBean findByLogin(LoginBean login) {
 		AccountBean account = null;
 
@@ -52,4 +53,6 @@ public class AccountDAO {
 		// 見つかったユーザまたはnullを返す
 		return account;
 		}
+
+	
 }
