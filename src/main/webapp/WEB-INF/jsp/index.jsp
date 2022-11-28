@@ -52,6 +52,7 @@
 		<!-- メイン -->
 		<article class="main">
 			<h1>就職活動状況</h1>
+			
 			<!-- 
 			<div class="tab-wrap">
 			 -->

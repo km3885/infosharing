@@ -33,7 +33,7 @@ public class TestDAO {
 			PreparedStatement pStmt = con.prepareStatement(sql);
 
 			// SELECT文を実行し、結果票を取得
-			ResultSet rs = pStmt.executeQuery();
+			ResultSet rs = pStmt.findAccountQuery();
 
 			while (rs.next()) {
 				// 結果票からデータを取得

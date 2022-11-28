@@ -58,7 +58,7 @@ public class StuinfoServlet extends HttpServlet {
 		// ログイン処理の実行
 		StudentBean stu = new StudentBean(stuNo);
 		StuInfoLogic bo = new StuInfoLogic();
-		StudentBean stu1 = bo.execute(stu);
+		StudentBean stu1 = bo.findAccount(stu);
 
 		// ログイン処理の成否によって処理を分岐
 		if (stu1 != null) {

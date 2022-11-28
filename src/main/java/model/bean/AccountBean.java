@@ -3,34 +3,60 @@ package model.bean;
 import java.io.Serializable;
 
 public class AccountBean implements Serializable {
-	private String userId;
+	private String loginId;
 	private String pass;
+	private String userName;
 	private boolean role;
 	
-	public boolean isRole() {
-		return role;
+	// コンストラクタ
+	public AccountBean() {	
 	}
-	public void setRole(boolean role) {
-		this.role = role;
-	}
-	public AccountBean() {
-		
-	}
-	public AccountBean(String userId, String pass) {
-		this.userId = userId;
+	
+	public AccountBean(String loginId, String pass) {
+		this.loginId = loginId;
 		this.pass = pass;
 	}
-	public String getUserId() {
-		return userId;
+	
+	public AccountBean(String loginId, String pass, String userName, boolean role) {
+		this.loginId = loginId;
+		this.pass = pass;
+		this.userName = userName;
+		this.role = role;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+	
+	// getter / setter
+	
+	
+	public String getLoginId() {
+		return loginId;
 	}
+
+	public void setLoginId(String loginId) {
+		this.loginId = loginId;
+	}
+
 	public String getPass() {
 		return pass;
 	}
 	public void setPass(String pass) {
 		this.pass = pass;
+	}
+	
+	public String getUserName() {
+		return userName;
+	}
+	
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
+	
+	public boolean isRole() {
+		return role;
+	}
+	
+	public void setRole(boolean role) {
+		this.role = role;
 	}
 	
 	

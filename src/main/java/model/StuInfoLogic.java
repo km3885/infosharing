@@ -10,14 +10,14 @@ import model.bean.StudentBean;
 public class StuInfoLogic {
 	
 	// 訓練生情報取得（1人分）
-	public StudentBean execute(StudentBean stu) {
+	public StudentBean findAccount(StudentBean stu) {
 		StudentDAO dao = new StudentDAO();
 		StudentBean stu1 = dao.findStudent(stu);
 		return stu1;
 	}
 	
 	// 訓練生情報取得（全員）
-	public List<StudentBean> execute() {
+	public List<StudentBean> findAccount() {
 		List<StudentBean> stuList = new ArrayList<StudentBean>();
 		StudentDAO dao = new StudentDAO();
 		stuList = dao.findStudent();

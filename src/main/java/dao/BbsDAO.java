@@ -35,7 +35,7 @@ public class BbsDAO {
 
                 try {
                     // sqlを送信
-                    ResultSet rs = pStmt.executeQuery(sql);
+                    ResultSet rs = pStmt.findAccountQuery(sql);
 
                     while (rs.next()) {
                         // DBから取り出したuser_name,comment timeをBbsBeanにset

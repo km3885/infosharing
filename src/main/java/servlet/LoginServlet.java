@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import model.LoginLogic;
 import model.StuInfoLogic;
-import model.bean.LoginBean;
+import model.bean.AccountBean;
 import model.bean.StudentBean;
 
 /**
@@ -51,27 +51,30 @@ public class LoginServlet extends HttpServlet {
 				String pass = request.getParameter("pass");
 				
 				// ログイン処理の実行
-				LoginBean login = new LoginBean(userId, pass);
+				AccountBean login = new AccountBean(userId, pass);
 				LoginLogic bo = new LoginLogic();
-				boolean result = bo.execute(login);
+				boolean result = bo.findAccount(login);
 				
 				// ログイン処理の成否によって処理を分岐
 				if (result) {
 					// ログイン成功
-					// セッションスコープにユーザIDを保存
+					// セッションスコープにアカウント情報を保存
+					AccountBean ac = new AccountBean();
+					LoginLogic bo1 = new LoginLogic();
+					ac = bo1.getAccountInfo(login);
 					HttpSession session = request.getSession();
-					session.setAttribute("userId", userId);
+					session.setAttribute("ac", ac);
 				
 				// 訓練生情報の取得
 				StuInfoLogic sl = new StuInfoLogic();
-				List<StudentBean> stuList = sl.execute();
+				List<StudentBean> stuList = sl.findAccount();
 					
 				// 訓練生情報をアプリケーションスコープに保存
 					ServletContext application = this.getServletContext();
 					application.setAttribute("stulist", stuList);
 					
 					
-					// top.jspへフォワード
+					// index.jspへフォワード
 					RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/index.jsp");
 					dispatcher.forward(request, response);
 				} else {
