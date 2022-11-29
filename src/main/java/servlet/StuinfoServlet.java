@@ -1,14 +1,15 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.StuInfoLogic;
 import model.bean.StudentBean;
@@ -34,10 +35,10 @@ public class StuinfoServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		// 訓練生情報取得(リスト化)
+
+		//
 		request.setCharacterEncoding("UTF-8");
-		
+
 		// stuinfo.jspへフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinfo.jsp");
 		dispatcher.forward(request, response);
@@ -55,22 +56,17 @@ public class StuinfoServlet extends HttpServlet {
 		String stuNo = request.getParameter("stu_name");
 		// System.out.println("パラメータは" + stuNo);
 
-		// ログイン処理の実行
-		StudentBean stu = new StudentBean(stuNo);
-		StuInfoLogic bo = new StuInfoLogic();
-		StudentBean stu1 = bo.findAccount(stu);
+		// 訓練生情報の取得
+		StuInfoLogic sl = new StuInfoLogic();
+		List<StudentBean> stuList = sl.findAccount();
 
-		// ログイン処理の成否によって処理を分岐
-		if (stu1 != null) {
-			// ログイン成功
-			// セッションスコープにユーザIDを保存
-			HttpSession session = request.getSession();
-			session.setAttribute("stu", stu1);
+		// 訓練生情報をアプリケーションスコープに保存
+		ServletContext application = this.getServletContext();
+		application.setAttribute("stulist", stuList);
 
-			// stuinfo.jspへフォワード
-			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinfo.jsp");
-			dispatcher.forward(request, response);
-		}
-
+		// stuinfo.jspへフォワード
+		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinfo.jsp");
+		dispatcher.forward(request, response);
 	}
+
 }
