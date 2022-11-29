@@ -41,7 +41,7 @@
 						class="icon"> <ion-icon name="shield-checkmark-outline"></ion-icon>
 					</span> <span class="title">アクセス権限</span>
 				</a></li>
-				<li class="btn-logout"><a href="LogoutServlet"> <span
+				<li class="btn-logout"><a href="LogoutServlet" onclick="return confirm('本当にログアウトしてもよろしいですか？');"> <span
 						class="icon"> <ion-icon name="log-out-outline"></ion-icon>
 					</span> <span class="title">ログアウト</span>
 				</a></li>

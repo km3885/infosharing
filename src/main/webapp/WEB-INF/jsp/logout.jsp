@@ -7,6 +7,6 @@
 <title>ログアウト画面</title>
 </head>
 <body>
-
+ログアウト
 </body>
 </html>
