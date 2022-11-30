@@ -59,11 +59,15 @@ public class LoginServlet extends HttpServlet {
 				if (result) {
 					// ログイン成功
 					// セッションスコープにアカウント情報を保存
+					
 					AccountBean ac = new AccountBean();
 					LoginLogic bo1 = new LoginLogic();
 					ac = bo1.getAccountInfo(login);
 					HttpSession session = request.getSession();
 					session.setAttribute("ac", ac);
+					
+					// セッションスコープチェック
+					System.out.println(ac.getUserName());
 				
 				// 訓練生情報の取得
 				StuInfoLogic sl = new StuInfoLogic();
@@ -79,8 +83,10 @@ public class LoginServlet extends HttpServlet {
 					dispatcher.forward(request, response);
 				} else {
 					// ログイン失敗
-					// login.jspへリダイレクト
-					response.sendRedirect("WEB-INF/jsp/loginerror.jsp");
+					// loginerror.jspへフォワード
+					// response.sendRedirect("WEB-INF/jsp/loginerror.jsp");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/loginerror.jsp");
+					dispatcher.forward(request, response);
 				}
 	}
 

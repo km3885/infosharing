@@ -15,17 +15,7 @@
 
 <body>
 	<!-- header -->
-	<header>
-		<div class="wrapper">
-			<div class="header-left">
-				<h1>訓練生就活状況共有ツール</h1>
-			</div>
-			<div class="header-right">
-				<ion-icon name="person-circle-outline" class="user-icon"></ion-icon>
-				<p class="name">ログインID</p>
-			</div>
-		</div>
-	</header>
+	<jsp:include page="header.jsp" />
 
 	<div class="col">
 		<!-- サイドメニュー -->
@@ -47,8 +37,9 @@
 						class="icon"> <ion-icon name="shield-checkmark-outline"></ion-icon>
 					</span> <span class="title">アクセス権限</span>
 				</a></li>
-				<li class="btn-logout"><a href="#"> <span class="icon">
-							<ion-icon name="log-out-outline"></ion-icon>
+				<li class="btn-logout"><a href="LogoutServlet"
+					onclick="return confirm('ログアウトしてもよろしいですか？');"> <span
+						class="icon"> <ion-icon name="log-out-outline"></ion-icon>
 					</span> <span class="title">ログアウト</span>
 				</a></li>
 			</ul>
@@ -57,10 +48,12 @@
 		<!-- contents -->
 		<div class="col_2 stu-col2">
 			<h2>訓練生情報</h2>
+<!-- 
 			<form action="<%=request.getContextPath()%>/StuinfoServlet"
 				method="post">
 				<div class="dd-list">
-					<label for="name">名前:</label> <select name="stu_name">
+					<label for="name">名前:</label>
+					<select name="stu_name">
 						<option>▼選択してください</option>
 						<option value="2401">佐藤 碧</option>
 						<option value="2402">鈴木 陽葵</option>
@@ -71,22 +64,21 @@
 					<button>見る</button>
 				</div>
 			</form>
-<!-- 
-			<form action="<%=request.getContextPath()%>/StuinfoServlet"
-				method="post">
+ -->
+			
+			<form action="<%=request.getContextPath()%>/StuinfoServlet" method="post">
 				<div class="dd-list">
-					<label for="name">名前:</label> <select>
+					<label for="name">名前:</label>
+					<select name="stu_name">
 						<option>▼選択してください</option>
-						<option value="2401">
-							<c:forEach var="item" items="${stulist}">
-								<c:out value="${item.no}"></c:out>
-							</c:forEach>
-						</option>
+						<c:forEach var="item" items="${stulist}">
+							<option value="${item.no}"><c:out value="${item.name}"></c:out></option>
+						</c:forEach>
 					</select>
 					<button>見る</button>
 				</div>
 			</form>
- -->
+
 
 			<!-- <form method="post">
         <div>
