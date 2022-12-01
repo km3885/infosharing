@@ -48,23 +48,6 @@
 		<!-- contents -->
 		<div class="col_2 stu-col2">
 			<h2>訓練生情報</h2>
-<!-- 
-			<form action="<%=request.getContextPath()%>/StuinfoServlet"
-				method="post">
-				<div class="dd-list">
-					<label for="name">名前:</label>
-					<select name="stu_name">
-						<option>▼選択してください</option>
-						<option value="2401">佐藤 碧</option>
-						<option value="2402">鈴木 陽葵</option>
-						<option value="2403">高橋 陽翔</option>
-						<option value="2404">田中 凛</option>
-						<option value="2405">伊藤 蒼</option>
-					</select>
-					<button>見る</button>
-				</div>
-			</form>
- -->
 			
 			<form action="<%=request.getContextPath()%>/StuinfoServlet" method="post">
 				<div class="dd-list">

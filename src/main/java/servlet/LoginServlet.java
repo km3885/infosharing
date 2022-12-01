@@ -36,6 +36,7 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		// ログイン画面へフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
 		dispatcher.forward(request, response);
@@ -50,10 +51,15 @@ public class LoginServlet extends HttpServlet {
 				String userId = request.getParameter("userId");
 				String pass = request.getParameter("pass");
 				
+				// パラメータチェック
+				// System.out.println("パラメータ" + userId);
+				// System.out.println("パラメータ" + pass);
+				
 				// ログイン処理の実行
 				AccountBean login = new AccountBean(userId, pass);
 				LoginLogic bo = new LoginLogic();
 				boolean result = bo.findAccount(login);
+				
 				
 				// ログイン処理の成否によって処理を分岐
 				if (result) {
@@ -67,16 +73,19 @@ public class LoginServlet extends HttpServlet {
 					session.setAttribute("ac", ac);
 					
 					// セッションスコープチェック
-					System.out.println(ac.getUserName());
+					// System.out.println("bbb" +ac.getUserName());
 				
 				// 訓練生情報の取得
 				StuInfoLogic sl = new StuInfoLogic();
 				List<StudentBean> stuList = sl.findAccount();
 					
 				// 訓練生情報をアプリケーションスコープに保存
-					ServletContext application = this.getServletContext();
-					application.setAttribute("stulist", stuList);
-					
+				ServletContext application = this.getServletContext();
+				application.setAttribute("stulist", stuList);
+				
+				// 掲示板情報取得
+				
+				
 					
 					// index.jspへフォワード
 					RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/index.jsp");

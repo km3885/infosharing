@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,9 +32,17 @@ public class LogoutServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		
-		// ログアウト画面へフォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
-		dispatcher.forward(request, response);
+		// チェック
+		if (session == null) {
+			System.out.println("null");
+		} else {
+			System.out.println("not null");
+		}
+		
+		System.out.println(session);
+
+		// ログイン画面へリダイレクト
+		response.sendRedirect("/infosharing/LoginServlet");
 	}
 
 	/**

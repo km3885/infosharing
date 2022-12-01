@@ -80,8 +80,10 @@ public class AccountDAO {
 			con = DriverManager.getConnection(URL, USER, PASS);
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM users ";
+			String sql = "SELECT * FROM users WHERE login_id = ? AND password = ?";
 			PreparedStatement pStmt = con.prepareStatement(sql);
+			pStmt.setString(1, login.getLoginId());
+			pStmt.setString(2, login.getPass());
 
 			// SELECT文を実行し、結果票を取得
 			ResultSet rs = pStmt.executeQuery();
