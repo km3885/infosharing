@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.bean.AccountBean;
 
@@ -115,5 +117,54 @@ public class AccountDAO {
 		}
 		//
 		return account;
+	}
+	
+	// アカウント情報をすべて取得
+	public List<AccountBean> getAccountAll() {
+		List<AccountBean> accountList = new ArrayList<AccountBean>();
+		Connection con = null;
+
+		// データベースへ接続
+		try {
+			// Class.forName()メソッドにJDBCドライバ名を与えJDBCドライバをロード
+			Class.forName(RDB_DRIVE);
+
+			// 接続先の情報。引数:「JDMC接続先情報」,「ユーザー名」,「パスワード」
+			con = DriverManager.getConnection(URL, USER, PASS);
+
+			// SELECT文を準備
+			String sql = "SELECT login_id, user_name, role FROM users";
+			PreparedStatement pStmt = con.prepareStatement(sql);
+
+			// SELECT文を実行し、結果票を取得
+			ResultSet rs = pStmt.executeQuery();
+
+			// そのユーザ情報をリストに格納
+			while (rs.next()) {
+				// 結果票からデータを取得
+				String loginId = rs.getString("login_id");
+				String userName = rs.getString("user_name");
+				boolean role = rs.getBoolean("role");
+				AccountBean account = new AccountBean(loginId, userName, role);
+				accountList.add(account);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		} catch (Exception e) {
+			System.out.println("JDBCデータベース接続エラー:" + e);
+		} finally {
+			try {
+				if (con != null) {
+					// データベースを切断
+					con.close();
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		//
+		return accountList;
 	}
 }

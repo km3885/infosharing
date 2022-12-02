@@ -9,7 +9,8 @@ public class AccountBean implements Serializable {
 	private boolean role;
 	
 	// コンストラクタ
-	public AccountBean() {	
+	public AccountBean() {
+		
 	}
 	
 	public AccountBean(String loginId, String pass) {
@@ -17,15 +18,18 @@ public class AccountBean implements Serializable {
 		this.pass = pass;
 	}
 	
-	public AccountBean(String loginId, String pass, String userName, boolean role) {
+	public AccountBean(String loginId, String userName, boolean role) {
 		this.loginId = loginId;
-		this.pass = pass;
 		this.userName = userName;
 		this.role = role;
 	}
 	
-	// getter / setter
+	public AccountBean(String loginId, String pass, String userName, boolean role) {
+		this(loginId, userName, role);
+		this.pass = pass;
+	}
 	
+	// getter / setter
 	
 	public String getLoginId() {
 		return loginId;

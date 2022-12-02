@@ -32,12 +32,6 @@ public class LogoutServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		
-		// チェック
-		if (session == null) {
-			System.out.println("null");
-		} else {
-			System.out.println("not null");
-		}
 		
 		System.out.println(session);
 
