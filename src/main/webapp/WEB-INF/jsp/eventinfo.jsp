@@ -45,7 +45,40 @@
 
 		<!-- コンテンツ -->
 		<div class="col_2 stu-col2">
-			<h2>イベント管理</h2>
+		
+			<h2>令和４年度　 情報システム科在校生名簿</h2>
+			<p> 令和3年度 普通課程4科入校生（2年次） 入校式：令和3年4月12日（月）</p>
+			<p> 令和4年度入校式：令和4年4月11日（月）  前期修了式：令和4年9月27日（火）  後期入校式：令和4年10月3日（月）  修了式：令和5年3月10日（金）</p>
+	
+			<table>
+				<thead>
+					<tr>
+						<th>a</th>
+						<th>b</th>
+						<th>c</th>
+						<th>d</th>
+						<th>e</th>
+						<th>f</th>
+						<th>g</th>
+						<th>h</th>
+						<th>i</th>
+						<th>j</th>
+						<th>k</th>
+						<th>l</th>
+						<th>m</th>
+						<th>n</th>
+						<th>o</th>
+						<th>p</th>
+						<th>q</th>
+						<th>r</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
 
 		</div>
 	</div>

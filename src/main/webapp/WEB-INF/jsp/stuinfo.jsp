@@ -78,10 +78,7 @@
       </form> -->
 		</div>
 
-		<div>
-			<p>結果</p>
-			<%=request.getAttribute("stu")%>
-		</div>
+			<div>	</div>
 	</div>
 
 
