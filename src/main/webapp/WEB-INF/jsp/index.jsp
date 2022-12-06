@@ -74,7 +74,7 @@
 									<tr>
 										<td><c:out value="${item.no}"></c:out></td>
 										<td><c:out value="${item.name}"></c:out></td>
-										<td><c:out value="${item.state}"></c:out></td>
+										<td><c:out value="${item.coName}"></c:out></td>
 									</tr>
 								</c:if>
 							</c:forEach>
@@ -99,7 +99,7 @@
 									<tr>
 										<td><c:out value="${item.no}"></c:out></td>
 										<td><c:out value="${item.name}"></c:out></td>
-										<td><c:out value="${item.state}"></c:out></td>
+										<td><c:out value="${item.coName}"></c:out></td>
 									</tr>
 								</c:if>
 							</c:forEach>
@@ -124,7 +124,7 @@
 									<tr>
 										<td><c:out value="${item.no}"></c:out></td>
 										<td><c:out value="${item.name}"></c:out></td>
-										<td><c:out value="${item.state}"></c:out></td>
+										<td><c:out value="${item.coName}"></c:out></td>
 									</tr>
 								</c:if>
 							</c:forEach>
@@ -149,7 +149,7 @@
 									<tr>
 										<td><c:out value="${item.no}"></c:out></td>
 										<td><c:out value="${item.name}"></c:out></td>
-										<td><c:out value="${item.state}"></c:out></td>
+										<td><c:out value="${item.coName}"></c:out></td>
 									</tr>
 								</c:if>
 							</c:forEach>
@@ -174,7 +174,7 @@
 									<tr>
 										<td><c:out value="${item.no}"></c:out></td>
 										<td><c:out value="${item.name}"></c:out></td>
-										<td><c:out value="${item.state}"></c:out></td>
+										<td><c:out value="${item.coName}"></c:out></td>
 									</tr>
 								</c:if>
 							</c:forEach>

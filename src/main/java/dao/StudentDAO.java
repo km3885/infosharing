@@ -22,7 +22,7 @@ public class StudentDAO {
 	public StudentBean findStudent(StudentBean stu) {
 		StudentBean stu1 = null;
 		// SELECT文を準備
-		String sql = "SELECT * FROM students WHERE no = ?";
+		String sql = "SELECT * FROM students WHERE id = ?";
 
 		// データベースへ接続
 		try (
@@ -30,7 +30,7 @@ public class StudentDAO {
 				PreparedStatement pStmt = con.prepareStatement(sql);) {
 			Class.forName(RDB_DRIVE);
 			System.out.println("no1");
-			pStmt.setString(1, stu.getNo());
+			pStmt.setInt(1, stu.getId());
 
 			// SELECT文を実行し、結果票を取得
 			ResultSet rs = pStmt.executeQuery();
@@ -43,7 +43,8 @@ public class StudentDAO {
 				String no = rs.getString("no");
 				String name = rs.getString("name");
 				String state = rs.getString("state");
-				stu1 = new StudentBean(id, no, name, state);
+				String coName = rs.getString("co_name");
+				stu1 = new StudentBean(id, no, name, state, coName);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -83,7 +84,8 @@ public class StudentDAO {
 				String no = rs.getString("no");
 				String name = rs.getString("name");
 				String state = rs.getString("state");
-				StudentBean stu = new StudentBean(id, no, name, state);
+				String coName = rs.getString("co_name");
+				StudentBean stu = new StudentBean(id, no, name, state, coName);
 				stuList.add(stu);
 			}
 

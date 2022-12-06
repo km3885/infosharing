@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.StuInfoLogic;
+import model.bean.StudentBean;
+
 /**
  * Servlet implementation class StuinfoServlet
  */
@@ -33,11 +36,35 @@ public class StuinfoServlet extends HttpServlet {
 
 		//
 		request.setCharacterEncoding("UTF-8");
+		String key = request.getParameter("id");
+		
+		if (key == null) {
+			// stuinfo.jspへフォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinfo.jsp");
+			dispatcher.forward(request, response);	
+		} else {
+			int id = Integer.parseInt(key);
+			// チェック
+			System.out.println("パラメータ" + id);
+			
+			StudentBean stu = new StudentBean(id);
+			StuInfoLogic sl = new StuInfoLogic();
+			StudentBean stu1 = new StudentBean();
+			stu1 = sl.findAccount(stu);
+			
+			// チェック
+			System.out.println(stu1.getId());
+			System.out.println(stu1.getNo());
+			System.out.println(stu1.getName());
+			System.out.println(stu1.getState());
+			System.out.println(stu1.getCoName());
+			
+			// stuinforesult.jspへフォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinforesult.jsp");
+			dispatcher.forward(request, response);	
+		}
 
-		// stuinfo.jspへフォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinfo.jsp");
-		dispatcher.forward(request, response);
-	}
+			}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
