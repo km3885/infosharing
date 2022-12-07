@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -92,6 +93,17 @@ public class LoginServlet extends HttpServlet {
 				// ユーザ情報をアプリケーションスコープに保存
 				ServletContext app = this.getServletContext();
 				app.setAttribute("userlist", userList);
+				
+				// selectBOX用リスト
+				List<String> selectList = new ArrayList<>();
+				selectList.add("内定");
+				selectList.add("選考中");
+				selectList.add("書類作成中");
+				selectList.add("応募済み");
+				selectList.add("未応募");
+				
+				// selectListをアプリケーションスコープに保存
+				app.setAttribute("selectlist", selectList);
 				
 				// 掲示板情報取得
 				

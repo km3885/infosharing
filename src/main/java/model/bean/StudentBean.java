@@ -18,7 +18,7 @@ public class StudentBean implements Serializable {
 			this.id = id;
 		}
 		
-		 // コンストラクタ引数4(id, no, name, state, coName)
+		 // コンストラクタ引数5(id, no, name, state, coName)
 		public StudentBean(int id, String no, String name, String state, String coName) {
 			this.id = id;
 			this.no = no;

@@ -52,6 +52,9 @@ public class StuinfoServlet extends HttpServlet {
 			StudentBean stu1 = new StudentBean();
 			stu1 = sl.findAccount(stu);
 			
+			// リクエストスコープにインスタンスを保存
+			request.setAttribute("stu1", stu1);
+			
 			// チェック
 			System.out.println(stu1.getId());
 			System.out.println(stu1.getNo());
@@ -60,7 +63,7 @@ public class StuinfoServlet extends HttpServlet {
 			System.out.println(stu1.getCoName());
 			
 			// stuinforesult.jspへフォワード
-			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinforesult.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/editstudent.jsp");
 			dispatcher.forward(request, response);	
 		}
 
@@ -73,12 +76,22 @@ public class StuinfoServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		StudentBean stu = new StudentBean();
+		
 		// リクエストパラメータの取得
 		request.setCharacterEncoding("UTF-8");
-		String stuNo = request.getParameter("stu_name");
+		stu.setId(Integer.parseInt(request.getParameter("id")));
+		stu.setNo(request.getParameter("no"));
+		stu.setName(request.getParameter("name"));
+		stu.setState(request.getParameter("state"));
+		stu.setCoName(request.getParameter("coName"));
 		
 		// パラメータチェック
-		System.out.println("パラメータは" + stuNo);
+		System.out.println(stu.getId());
+		System.out.println(stu.getNo());
+		System.out.println(stu.getName());
+		System.out.println(stu.getState());
+		System.out.println(stu.getCoName());
 		
 		// stuinforesult.jspへフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinforesult.jsp");
