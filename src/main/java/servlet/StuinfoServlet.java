@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -39,6 +40,12 @@ public class StuinfoServlet extends HttpServlet {
 		String key = request.getParameter("id");
 		
 		if (key == null) {
+			// 訓練生情報の取得
+			StuInfoLogic sl = new StuInfoLogic();
+			List<StudentBean> stuList = sl.findAccount();
+			// リクエストスコープに保存
+			request.setAttribute("stulist", stuList);
+			
 			// stuinfo.jspへフォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinfo.jsp");
 			dispatcher.forward(request, response);	
@@ -93,8 +100,20 @@ public class StuinfoServlet extends HttpServlet {
 		System.out.println(stu.getState());
 		System.out.println(stu.getCoName());
 		
+		// 
+		StuInfoLogic stuinfo = new StuInfoLogic();
+		boolean boo;
+		boo = stuinfo.updateStudent(stu);
+		
+		// 
+		// 訓練生情報の取得
+		StuInfoLogic sl = new StuInfoLogic();
+		List<StudentBean> stuList = sl.findAccount();
+		// リクエストスコープに保存
+		request.setAttribute("stulist", stuList);
+		
 		// stuinforesult.jspへフォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinforesult.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinfo.jsp");
 		dispatcher.forward(request, response);
 	}
 

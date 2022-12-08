@@ -15,7 +15,6 @@ import javax.servlet.http.HttpSession;
 
 import model.LoginLogic;
 import model.StuInfoLogic;
-import model.UserLogic;
 import model.bean.AccountBean;
 import model.bean.StudentBean;
 
@@ -38,6 +37,8 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+
 		
 		// ログイン画面へフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
@@ -76,23 +77,14 @@ public class LoginServlet extends HttpServlet {
 					
 					// セッションスコープチェック
 					// System.out.println("bbb" +ac.getUserName());
+
+				
 				
 				// 訓練生情報の取得
 				StuInfoLogic sl = new StuInfoLogic();
 				List<StudentBean> stuList = sl.findAccount();
-					
-				// 訓練生情報をアプリケーションスコープに保存
-				ServletContext application = this.getServletContext();
-				application.setAttribute("stulist", stuList);
-				
-				
-				// ユーザ情報の取得
-				UserLogic ul = new UserLogic();
-				List<AccountBean> userList = ul.findAccount();
-					
-				// ユーザ情報をアプリケーションスコープに保存
-				ServletContext app = this.getServletContext();
-				app.setAttribute("userlist", userList);
+				// リクエストスコープに保存
+				request.setAttribute("stulist", stuList);
 				
 				// selectBOX用リスト
 				List<String> selectList = new ArrayList<>();
@@ -102,11 +94,9 @@ public class LoginServlet extends HttpServlet {
 				selectList.add("応募済み");
 				selectList.add("未応募");
 				
-				// selectListをアプリケーションスコープに保存
+				// アプリケーションスコープに保存
+				ServletContext app = this.getServletContext();
 				app.setAttribute("selectlist", selectList);
-				
-				// 掲示板情報取得
-				
 				
 					
 					// index.jspへフォワード

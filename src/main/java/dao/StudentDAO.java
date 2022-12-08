@@ -56,7 +56,7 @@ public class StudentDAO {
 		return stu1;
 	}
 	
-	
+	// 訓練生情報取得(全員分)
 	public List<StudentBean> findStudent() {
 		List<StudentBean> stuList = new ArrayList<StudentBean>();
 
@@ -111,6 +111,63 @@ public class StudentDAO {
 			}
 		}
 		return stuList;
-
 	}
+	
+	// 訓練生情報更新
+	public boolean updateStudent(StudentBean stu) {
+		boolean boo = false;
+		Connection con = null;
+		
+		try {
+			// Class.forName()メソッドにJDBCドライバ名を与えJDBCドライバをロード
+			Class.forName(RDB_DRIVE);
+
+			// 接続先の情報。引数:「JDMC接続先情報」,「ユーザー名」,「パスワード」
+			con = DriverManager.getConnection(URL, USER, PASS);
+
+			System.out.println("接続成功");
+
+			// UPDATE文を準備
+			String sql = "UPDATE students SET name = ?, state = ?, co_name = ? WHERE id = ?";
+			PreparedStatement pStmt = con.prepareStatement(sql);
+			
+			pStmt.setString(1, stu.getName());
+			pStmt.setString(2, stu.getstate());
+			pStmt.setString(3, stu.getCoName());
+			
+			pStmt.setInt(4, stu.getId());
+
+			// UPDATE文を実行し、結果票を取得
+			int result = pStmt.executeUpdate();
+			//
+			System.out.print(result);
+			
+			if(result == 1) {
+				boo = true;
+			}
+
+			// forName()で例外発生
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			System.out.println("no1");
+
+			// getConnection()で例外発生
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("no2");
+
+		} finally {
+			try {
+				if (con != null) {
+					// データベースを切断
+					con.close();
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return boo;
+	}
+	
 }

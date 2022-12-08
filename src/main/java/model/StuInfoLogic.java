@@ -23,4 +23,12 @@ public class StuInfoLogic {
 		stuList = dao.findStudent();
 		return stuList;
 	}
+	
+	// 訓練生情報更新
+	public boolean updateStudent(StudentBean stu) {
+		boolean boo;
+		StudentDAO dao = new StudentDAO();
+		boo = dao.updateStudent(stu);
+		return boo;
+	}
 }

@@ -10,6 +10,26 @@
 <link rel="stylesheet" href="./css/common.css">
 <link rel="stylesheet" href="./css/style.css">
 <title>訓練生情報</title>
+
+<script type="text/javascript"> 
+
+function check(){
+
+	if(window.confirm( ${stu1.no} + '\n送信してよろしいですか？')){ // 確認ダイアログを表示
+
+		return true; // 「OK」時は送信を実行
+
+	}
+	else{ // 「キャンセル」時の処理
+
+		window.alert('キャンセルされました'); // 警告ダイアログを表示
+		return false; // 送信を中止
+
+	}
+
+}
+
+</script>
 </head>
 
 <body>
@@ -49,7 +69,7 @@
 			<h2>訓練生情報管理</h2>
 			Edit画面
 			
-			<form action="StuinfoServlet" method="post">
+			<form action="StuinfoServlet" method="post" onSubmit="return check()">
 				<p><label>ID <input type="text" name="id" value="${stu1.id}"></label></p>
 				<p><label>番号 <input type="text" name="no" value="${stu1.no}"></label></p>
 				<p><label>名前 <input type="text" name="name" value="${stu1.name}"></label></p>
@@ -70,7 +90,7 @@
 				<p><label>企業名 <input type="text" name="coName" value="${stu1.coName}"></label></p>
 				
 				
-				<p><input type="submit" value="更新"></p>
+				<p><input type="submit" value="更新" name="btn"></p>
 			</form>
 			
 		</div>
@@ -86,9 +106,8 @@
 		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 	<script nomodule
 		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-	<script>
-		
-	</script>
+
+	
 </body>
 
 </html>
