@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import model.LoginLogic;
 import model.StuInfoLogic;
+import model.UserLogic;
 import model.bean.AccountBean;
 import model.bean.StudentBean;
 
@@ -79,6 +80,14 @@ public class LoginServlet extends HttpServlet {
 					// System.out.println("bbb" +ac.getUserName());
 
 				
+					// アカウント情報をすべて取得
+					UserLogic ul = new UserLogic();
+					List<AccountBean> userList = new ArrayList<>();
+					userList = ul.findAccount();
+					
+					// userListをアプリケーションスコープに保存
+					ServletContext app = this.getServletContext();
+					app.setAttribute("userlist", userList);
 				
 				// 訓練生情報の取得
 				StuInfoLogic sl = new StuInfoLogic();
@@ -95,7 +104,6 @@ public class LoginServlet extends HttpServlet {
 				selectList.add("未応募");
 				
 				// アプリケーションスコープに保存
-				ServletContext app = this.getServletContext();
 				app.setAttribute("selectlist", selectList);
 				
 					

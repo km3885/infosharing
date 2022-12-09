@@ -169,5 +169,62 @@ public class StudentDAO {
 		}
 		return boo;
 	}
+
+	// 訓練生情報追加
+	public boolean insertStudent(StudentBean stu) {
+		boolean boo = false;
+		Connection con = null;
+		
+		try {
+			// Class.forName()メソッドにJDBCドライバ名を与えJDBCドライバをロード
+			Class.forName(RDB_DRIVE);
+
+			// 接続先の情報。引数:「JDMC接続先情報」,「ユーザー名」,「パスワード」
+			con = DriverManager.getConnection(URL, USER, PASS);
+
+			System.out.println("接続成功");
+
+			// INSERT文を準備
+			String sql = "INSERT INTO students VALUES (?, ?, ?, ?, ?)";
+			PreparedStatement pStmt = con.prepareStatement(sql);
+			
+			pStmt.setInt(1, stu.getId());
+			pStmt.setString(2, stu.getNo());
+			pStmt.setString(3, stu.getName());
+			pStmt.setString(4, stu.getstate());
+			pStmt.setString(5, stu.getCoName());
+
+			// INSERT文を実行し、結果票を取得
+			int result = pStmt.executeUpdate();
+			//
+			System.out.print(result);
+			
+			if(result == 1) {
+				boo = true;
+			}
+
+			// forName()で例外発生
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			System.out.println("no1");
+
+			// getConnection()で例外発生
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("no2");
+
+		} finally {
+			try {
+				if (con != null) {
+					// データベースを切断
+					con.close();
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return boo;
+	}
 	
 }

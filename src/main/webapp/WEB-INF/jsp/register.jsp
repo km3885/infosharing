@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./css/common.css">
 <link rel="stylesheet" href="./css/style.css">
-<title>訓練生情報</title>
+<title>訓練生情報2</title>
 
 <script type="text/javascript"> 
 
@@ -88,7 +88,7 @@ function check(){
 					</select>
 				</label></p>
 				<p><label>企業名 <input type="text" name="coName" value="${stu1.coName}"></label></p>
-				<p><button type="submit" name="btn" value="update">更新</button></p>
+				<p><button type="submit" name="btn" value="new">登録</button></p>
 			</form>
 			
 		</div>

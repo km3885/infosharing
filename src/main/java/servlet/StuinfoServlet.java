@@ -32,16 +32,27 @@ public class StuinfoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@SuppressWarnings("unused")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		//
 		request.setCharacterEncoding("UTF-8");
-		String key = request.getParameter("id");
+		String key = request.getParameter("btn");
+		String trash = request.getParameter("trash");
+		int id;
+		StudentBean stu;
+		StuInfoLogic sl = new StuInfoLogic();
+		StudentBean stu1 = new StudentBean();
+
+
+		// パラメータチェック
+		System.out.println("パラメータ_btn:" + key);
+		System.out.println("パラメータ_trash:" + trash);
+
 		
-		if (key == null) {
+		if (key == null && trash == null) {
 			// 訓練生情報の取得
-			StuInfoLogic sl = new StuInfoLogic();
 			List<StudentBean> stuList = sl.findAccount();
 			// リクエストスコープに保存
 			request.setAttribute("stulist", stuList);
@@ -49,32 +60,40 @@ public class StuinfoServlet extends HttpServlet {
 			// stuinfo.jspへフォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinfo.jsp");
 			dispatcher.forward(request, response);	
-		} else {
-			int id = Integer.parseInt(key);
+			
+		} else if(key.equals("new")) {
+			// 新規登録画面へフォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/register.jsp");
+			dispatcher.forward(request, response);
+		} else if(key != null) {
+				id = Integer.parseInt(key);
+				stu = new StudentBean(id);
+				stu1 = sl.findAccount(stu);
+				// リクエストスコープにインスタンスを保存
+				request.setAttribute("stu1", stu1);
+			} else {
+				id = Integer.parseInt(trash);
+				stu = new StudentBean(id);
+				stu1 = sl.findAccount(stu);
+				// リクエストスコープにインスタンスを保存
+				request.setAttribute("stu1", stu1);
+			}
+
+			
+		
 			// チェック
-			System.out.println("パラメータ" + id);
-			
-			StudentBean stu = new StudentBean(id);
-			StuInfoLogic sl = new StuInfoLogic();
-			StudentBean stu1 = new StudentBean();
-			stu1 = sl.findAccount(stu);
-			
-			// リクエストスコープにインスタンスを保存
-			request.setAttribute("stu1", stu1);
-			
-			// チェック
-			System.out.println(stu1.getId());
-			System.out.println(stu1.getNo());
-			System.out.println(stu1.getName());
-			System.out.println(stu1.getState());
-			System.out.println(stu1.getCoName());
+//			System.out.println(stu1.getId());
+//			System.out.println(stu1.getNo());
+//			System.out.println(stu1.getName());
+//			System.out.println(stu1.getState());
+//			System.out.println(stu1.getCoName());
 			
 			// stuinforesult.jspへフォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/editstudent.jsp");
 			dispatcher.forward(request, response);	
 		}
 
-			}
+			
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
@@ -84,6 +103,8 @@ public class StuinfoServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		StudentBean stu = new StudentBean();
+		StuInfoLogic stuinfo = new StuInfoLogic();
+		boolean boo;
 		
 		// リクエストパラメータの取得
 		request.setCharacterEncoding("UTF-8");
@@ -100,12 +121,16 @@ public class StuinfoServlet extends HttpServlet {
 		System.out.println(stu.getState());
 		System.out.println(stu.getCoName());
 		
+		String btn = request.getParameter("btn");
 		// 
-		StuInfoLogic stuinfo = new StuInfoLogic();
-		boolean boo;
-		boo = stuinfo.updateStudent(stu);
+		if(btn.equals("update")) {
+			boo = stuinfo.updateStudent(stu);
+		} else {
+			boo = stuinfo.insertStudent(stu);
+		}
+		// 
+		System.out.println("boo:" + boo);
 		
-		// 
 		// 訓練生情報の取得
 		StuInfoLogic sl = new StuInfoLogic();
 		List<StudentBean> stuList = sl.findAccount();

@@ -48,11 +48,11 @@
 		<!-- contents -->
 		<div class="col_2 stu-col2">
 			<h2>訓練生情報</h2>
-			
-			<form action="<%=request.getContextPath()%>/StuinfoServlet" method="post">
+
+			<form action="<%=request.getContextPath()%>/StuinfoServlet"
+				method="post">
 				<div class="dd-list">
-					<label for="name">名前:</label>
-					<select name="stu_name">
+					<label for="name">名前:</label> <select name="stu_name">
 						<option>▼選択してください</option>
 						<c:forEach var="item" items="${stulist}">
 							<option value="${item.no}"><c:out value="${item.name}"></c:out></option>
@@ -61,6 +61,10 @@
 					<button>見る</button>
 				</div>
 			</form>
+			<form action="<%=request.getContextPath()%>/StuinfoServlet"method="get">
+				<button type="submit" name="btn" value="new">新規登録</button>
+			</form>
+
 
 
 			<!-- <form method="post">
@@ -79,33 +83,35 @@
 		</div>
 
 
-				<table>
-					<thead>
-						<tr>
-							<th>id</th>
-							<th>no</th>
-							<th>name</th>
-							<th>state</th>
-							<th>co_name</th>
-							<th>編集</th>
-							<th>削除</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="item" items="${stulist}">
+		<table>
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>no</th>
+					<th>name</th>
+					<th>state</th>
+					<th>co_name</th>
+					<th>編集</th>
+					<th>削除</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="item" items="${stulist}">
 					<tr>
 						<td><c:out value="${item.id}" /></td>
 						<td><c:out value="${item.no}" /></td>
 						<td><c:out value="${item.name}" /></td>
 						<td><c:out value="${item.state}" /></td>
 						<td><c:out value="${item.coName}" /></td>
-						<td><a href="StuinfoServlet?id=<c:out value="${item.id}" />"><ion-icon name="pencil-outline"></ion-icon></a></td>
-						<td><a href="StuinfoServlet?id=<c:out value="${item.id}" />"><ion-icon name="trash-outline"></ion-icon></a></td>
+						<td><a href="StuinfoServlet?btn=<c:out value="${item.id}" />"><ion-icon
+									name="pencil-outline"></ion-icon></a></td>
+						<td><a href="StuinfoServlet?trash=<c:out value="${item.id}" />"><ion-icon
+									name="trash-outline"></ion-icon></a></td>
 					</tr>
 				</c:forEach>
-						
-					</tbody>
-				</table>
+
+			</tbody>
+		</table>
 
 	</div>
 

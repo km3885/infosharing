@@ -8,10 +8,11 @@ import model.bean.StudentBean;
 
 // 訓練生の情報に関する処理
 public class StuInfoLogic {
+	StudentDAO dao = new StudentDAO();
+	boolean boo;
 	
 	// 訓練生情報取得（1人分）
 	public StudentBean findAccount(StudentBean stu) {
-		StudentDAO dao = new StudentDAO();
 		StudentBean stu1 = dao.findStudent(stu);
 		return stu1;
 	}
@@ -19,16 +20,18 @@ public class StuInfoLogic {
 	// 訓練生情報取得（全員）
 	public List<StudentBean> findAccount() {
 		List<StudentBean> stuList = new ArrayList<StudentBean>();
-		StudentDAO dao = new StudentDAO();
 		stuList = dao.findStudent();
 		return stuList;
 	}
 	
 	// 訓練生情報更新
 	public boolean updateStudent(StudentBean stu) {
-		boolean boo;
-		StudentDAO dao = new StudentDAO();
 		boo = dao.updateStudent(stu);
+		return boo;
+	}
+
+	public boolean insertStudent(StudentBean stu) {
+		boo = dao.insertStudent(stu);
 		return boo;
 	}
 }
