@@ -35,7 +35,7 @@
 						class="icon"><ion-icon name="walk-outline"></ion-icon> 
 					</span> <span class="title">就活状況管理</span>
 				</a></li>
-				<li class="list"><a href="EventInfoServlet"> <span
+				<li class="list"><a href="ManagementServlet"> <span
 						class="icon"> <ion-icon name="people-circle-outline"></ion-icon>
 					</span> <span class="title">訓練生情報管理</span>
 				</a></li>

@@ -21,24 +21,23 @@
 		<!-- サイドメニュー -->
 		<aside class="navigation">
 			<ul>
-				<li class="list"><a href="TopServlet"> <span class="icon">
-							<ion-icon name="home-outline"></ion-icon>
+				<li class="list"><a href="TopServlet"> <span
+						class="icon"> <ion-icon name="home-outline"></ion-icon>
 					</span> <span class="title">ホーム</span>
 				</a></li>
 				<li class="list"><a href="StuinfoServlet"> <span
-						class="icon"> <ion-icon name="people-circle-outline"></ion-icon>
-					</span> <span class="title">訓練生情報</span>
+						class="icon"><ion-icon name="walk-outline"></ion-icon> 
+					</span> <span class="title">就活状況管理</span>
 				</a></li>
-				<li class="list active"><a href="EventInfoServlet"> <span
-						class="icon"> <ion-icon name="calendar-outline"></ion-icon>
-					</span> <span class="title">イベント管理</span>
+				<li class="list active"><a href="ManagementServlet"> <span
+						class="icon"> <ion-icon name="people-circle-outline"></ion-icon>
+					</span> <span class="title">訓練生情報管理</span>
 				</a></li>
 				<li class="list"><a href="AccessInfoServlet"> <span
 						class="icon"> <ion-icon name="shield-checkmark-outline"></ion-icon>
-					</span> <span class="title">アクセス権限</span>
+					</span> <span class="title">アクセス権限管理</span>
 				</a></li>
-				<li class="btn-logout"><a href="LogoutServlet"
-					onclick="return confirm('ログアウトしてもよろしいですか？');"> <span
+				<li class="btn-logout"><a href="LogoutServlet" onclick="return confirm('ログアウトしてもよろしいですか？');"> <span
 						class="icon"> <ion-icon name="log-out-outline"></ion-icon>
 					</span> <span class="title">ログアウト</span>
 				</a></li>

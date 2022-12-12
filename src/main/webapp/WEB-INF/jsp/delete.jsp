@@ -1,4 +1,4 @@
-<!-- 訓練生新規登録画面 -->
+<!-- 訓練生情報削除画面 -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -71,25 +71,32 @@ function check(){
 			Edit画面
 			
 			<form action="StuinfoServlet" method="post" onSubmit="return check()">
-				<p><label>ID <input type="text" name="id" value="${stu1.id}"></label></p>
-				<p><label>番号 <input type="text" name="no" value="${stu1.no}"></label></p>
-				<p><label>名前 <input type="text" name="name" value="${stu1.name}"></label></p>
-				<p><label>就活状況
-					<select name="state">
-						<c:forEach var="item" items="${selectlist}">
-							<c:choose>
-								<c:when test="${item == stu1.state}">
-									<option selected>${item}</option>
-								</c:when>
-								<c:otherwise>
-									<option>${item}</option>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>						
-					</select>
-				</label></p>
-				<p><label>企業名 <input type="text" name="coName" value="${stu1.coName}"></label></p>
-				<p><button type="submit" name="btn" value="new">登録</button></p>
+				
+				<table>
+					<tbody>
+						<tr>
+							<th>ID</th>
+							<td><input type="hidden" name="id" value="${stu1.id}"><c:out value="${stu1.id}" /></td>
+						</tr>
+						<tr>
+							<th>番号</th>
+							<td><input type="hidden" name="no" value="${stu1.no}"><c:out value="${stu1.no}" /></td>
+						</tr>
+						<tr>
+							<th>名前</th>
+							<td><input type="hidden" name="name" value="${stu1.name}"><c:out value="${stu1.name}" /></td>
+						</tr>
+						<tr>
+							<th>就活状況</th>
+							<td><input type="hidden" name="state" value="${stu1.state}"><c:out value="${stu1.state}" /></td>
+						</tr>
+						<tr>
+							<th>企業名</th>
+							<td><input type="hidden" name="coName" value="${stu1.coName}"><c:out value="${stu1.coName}" /></td>
+						</tr>
+					</tbody>
+				</table>
+				<p><button type="submit" name="btn" value="delete">削除</button></p>
 			</form>
 			
 		</div>

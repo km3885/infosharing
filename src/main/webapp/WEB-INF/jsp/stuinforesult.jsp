@@ -31,7 +31,7 @@
 						class="icon"> <ion-icon name="people-circle-outline"></ion-icon>
 					</span> <span class="title">訓練生情報</span>
 				</a></li>
-				<li class="list"><a href="EventInfoServlet"> <span
+				<li class="list"><a href="ManagementServlet"> <span
 						class="icon"> <ion-icon name="calendar-outline"></ion-icon>
 					</span> <span class="title">イベント管理</span>
 				</a></li>

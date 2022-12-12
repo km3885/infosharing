@@ -34,4 +34,9 @@ public class StuInfoLogic {
 		boo = dao.insertStudent(stu);
 		return boo;
 	}
+
+	public boolean deleteStudent(StudentBean stu) {
+		boo = dao.deleteStudent(stu);
+		return boo;
+	}
 }
