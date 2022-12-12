@@ -24,7 +24,24 @@ public class StudentCsvBean implements Serializable {
 
 	
 	public void setValue(int id, String category, String name, String jurisdiction, String newGrad, String apply, String jobCard, String pref, String coName, String internship, String workAddress, String empStatus, String empInsurance, String empperiod, String empRoute, String relation, String position, String decidedDate) {
-		
+		this.id = id;
+		this.category = category;		
+		this.name = name;
+		this.jurisdiction = jurisdiction;
+		this.newGrad = newGrad;
+		this.apply = apply;
+		this.jobCard = jobCard;
+		this.pref = pref;
+		this.coName = coName;
+		this.internship = internship;
+		this.workAddress = workAddress;
+		this.empStatus = empStatus;
+		this.empInsurance = empInsurance;
+		this.empperiod = empperiod;
+		this.empRoute = empRoute;
+		this.relation = relation;
+		this.position = position;
+		this.decidedDate = decidedDate;
 	}
 		
 	// getter/setter

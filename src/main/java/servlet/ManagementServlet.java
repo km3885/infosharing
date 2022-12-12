@@ -37,13 +37,18 @@ public class ManagementServlet extends HttpServlet {
 		
 		
 		try {
+			// ファイルパス
 			// ファイルのパスを指定
-			File file = new File("C:/Users/s2104/Desktop/csv/students.csv");
+			String fileName = "C:/Users/miyagi/OneDrive/デスクトップ/csv/students.csv";
+			File file = new File(fileName);
+			
 			
 				// ファイルが存在しない場合に例外が発生するので確認
 				if (!file.exists()) {
 					System.out.print("ファイルが存在しません");
 					return;
+				} else {
+					System.out.println("ファイルが見つかりました");
 				}
 			
 			// BufferedReaderクラスのreadLineメソッドを使って1行ずつ読み込み表示する
@@ -63,7 +68,7 @@ public class ManagementServlet extends HttpServlet {
 			String line;
 			for(int i = 0; (line = br.readLine()) != null; i++) {
 				String[] data = line.split(",", -1);
-				dataArray.setValue(Integer.parseInt(data[0]), data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8],data[9],data[10],data[11],data[12],data[13],data[14],data[15],data[16],data[17]);
+				dataArray[i].setValue(Integer.parseInt(data[0]), data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8],data[9],data[10],data[11],data[12],data[13],data[14],data[15],data[16],data[17]);
 			}
 			
 				//
