@@ -3,7 +3,7 @@ package model.bean;
 import java.io.Serializable;
 
 public class StudentCsvBean implements Serializable {
-	private int id;
+	private String id;
 	private String category;
 	private String name;
 	private String jurisdiction;
@@ -23,7 +23,7 @@ public class StudentCsvBean implements Serializable {
 	private String decidedDate;
 
 	
-	public void setValue(int id, String category, String name, String jurisdiction, String newGrad, String apply, String jobCard, String pref, String coName, String internship, String workAddress, String empStatus, String empInsurance, String empperiod, String empRoute, String relation, String position, String decidedDate) {
+	public void setValue(String id, String category, String name, String jurisdiction, String newGrad, String apply, String jobCard, String pref, String coName, String internship, String workAddress, String empStatus, String empInsurance, String empperiod, String empRoute, String relation, String position, String decidedDate) {
 		this.id = id;
 		this.category = category;		
 		this.name = name;
@@ -45,10 +45,10 @@ public class StudentCsvBean implements Serializable {
 	}
 		
 	// getter/setter
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getCategory() {

@@ -51,12 +51,13 @@
 			<h2>令和４年度　 情報システム科在校生名簿</h2>
 			<p> 令和3年度 普通課程4科入校生（2年次） 入校式：令和3年4月12日（月）</p>
 			<p> 令和4年度入校式：令和4年4月11日（月）  前期修了式：令和4年9月27日（火）  後期入校式：令和4年10月3日（月）  修了式：令和5年3月10日（金）</p>
-			
-			<a href="ManagementServlet?id=edit"><ion-icon name="pencil-outline"></ion-icon>編集</a>
 	
+			<form action="ManagementServlet" method="post">
+				<button type="submit">編集する</button>
 			<table>
 				<thead>
 					<tr>
+						<th></th>
 						<th><c:out value="${dataArray[0].getId()}" /></th>
 						<th><c:out value="${dataArray[0].getCategory()}" /></th>
 						<th><c:out value="${dataArray[0].getName()}" /></th>
@@ -80,6 +81,7 @@
 				<tbody>
 					<c:forEach var="i" begin="1" end="${count}" step="1">
 						<tr>
+							<td><input type="radio" name="id" value="${dataArray[i].getId()}"></td>
 							<td><c:out value="${dataArray[i].getId()}" /></td>
 							<td><c:out value="${dataArray[i].getCategory()}" /></td>
 							<td><c:out value="${dataArray[i].getName()}" /></td>
@@ -102,7 +104,9 @@
 					</c:forEach>
 				</tbody>
 			</table>
-
+			
+			</form>
+			
 		</div>
 	</div>
 
