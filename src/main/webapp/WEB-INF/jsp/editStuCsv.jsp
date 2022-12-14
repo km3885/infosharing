@@ -72,21 +72,165 @@ function check(){
 			
 			<form action="ManagementServlet" method="post" onSubmit="return check()">
 				<p><label>入力 <input type="text" name="id" value="${stu.id}"></label></p>
-				<p><label>科名 <input type="text" name="no" value="${stu.category}"></label></p>
+				<p><label>科名 
+					<select name="state">
+						<c:forEach var="item" items="${categorylist}">
+							<c:choose>
+								<c:when test="${item == stu.category}">
+									<option selected>${item}</option>
+								</c:when>
+								<c:otherwise>
+									<option>${item}</option>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>						
+					</select></label></p>
 				<p><label>氏名 <input type="text" name="name" value="${stu.name}"></label></p>
-				<p><label>管轄 <input type="text" name="id" value="${stu.jurisdiction}"></label></p>
-				<p><label>新卒 <input type="text" name="no" value="${stu.newGrad}"></label></p>
-				<p><label>適用 <input type="text" name="name" value="${stu.apply}"></label></p>
-				<p><label>ジョブカード <input type="text" name="no" value="${stu.jobCard}"></label></p>
-				<p><label>希望地 <input type="text" name="name" value="${stu.pref}"></label></p>
+				<p><label>管轄 
+					<select name="state">
+						<c:forEach var="item" items="${jurisdictionlist}">
+							<c:choose>
+								<c:when test="${item == stu.jurisdiction}">
+									<option selected>${item}</option>
+								</c:when>
+								<c:otherwise>
+									<option>${item}</option>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>						
+					</select></label></p>
+				<p><label>新卒 
+					<select name="state">
+						<c:forEach var="item" items="${newGradlist}">
+							<c:choose>
+								<c:when test="${item == stu.newGrad}">
+									<option selected>${item}</option>
+								</c:when>
+								<c:otherwise>
+									<option>${item}</option>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>						
+					</select></label></p>
+				<p><label>適用 
+					<select name="state">
+						<c:forEach var="item" items="${applylist}">
+							<c:choose>
+								<c:when test="${item == stu.apply}">
+									<option selected>${item}</option>
+								</c:when>
+								<c:otherwise>
+									<option>${item}</option>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>						
+					</select></label></p>
+				<p><label>ジョブカード 
+					<select name="state">
+						<c:forEach var="item" items="${jobCardlist}">
+							<c:choose>
+								<c:when test="${item == stu.jobCard}">
+									<option selected>${item}</option>
+								</c:when>
+								<c:otherwise>
+									<option>${item}</option>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>						
+					</select></label></p>
+				<p><label>希望地 
+					<select name="state">
+						<c:forEach var="item" items="${preflist}">
+							<c:choose>
+								<c:when test="${item == stu.pref}">
+									<option selected>${item}</option>
+								</c:when>
+								<c:otherwise>
+									<option>${item}</option>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>						
+					</select></label></p>
 				<p><label>就職先 <input type="text" name="id" value="${stu.coName}"></label></p>
-				<p><label>実習先 <input type="text" name="no" value="${stu.internship}"></label></p>
+				<p><label>実習先 
+					<select name="state">
+						<c:forEach var="item" items="${internshiplist}">
+							<c:choose>
+								<c:when test="${item == stu.internship}">
+									<option selected>${item}</option>
+								</c:when>
+								<c:otherwise>
+									<option>${item}</option>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>						
+					</select></label></p>
 				<p><label>勤務地住所 <input type="text" name="name" value="${stu.workAddress}"></label></p>
-				<p><label>雇用形態 <input type="text" name="id" value="${stu.empStatus}"></label></p>
-				<p><label>雇用保険 <input type="text" name="no" value="${stu.empInsurance}"></label></p>
-				<p><label>雇用期間 <input type="text" name="name" value="${stu.empperiod}"></label></p>
-				<p><label>就職経路 <input type="text" name="no" value="${stu.empRoute}"></label></p>
-				<p><label>関連 <input type="text" name="name" value="${stu.relation}"></label></p>
+				<p><label>雇用形態 
+					<select name="state">
+						<c:forEach var="item" items="${empStatuslist}">
+							<c:choose>
+								<c:when test="${item == stu.empStatus}">
+									<option selected>${item}</option>
+								</c:when>
+								<c:otherwise>
+									<option>${item}</option>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>						
+					</select></label></p>
+				<p><label>雇用保険 
+					<select name="state">
+						<c:forEach var="item" items="${empInsurancelist}">
+							<c:choose>
+								<c:when test="${item == stu.empInsurance}">
+									<option selected>${item}</option>
+								</c:when>
+								<c:otherwise>
+									<option>${item}</option>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>						
+					</select></label></p>
+				<p><label>雇用期間 
+					<select name="state">
+						<c:forEach var="item" items="${empperiodlist}">
+							<c:choose>
+								<c:when test="${item == stu.empperiod}">
+									<option selected>${item}</option>
+								</c:when>
+								<c:otherwise>
+									<option>${item}</option>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>						
+					</select></label></p>
+				<p><label>就職経路 
+					<select name="state">
+						<c:forEach var="item" items="${empRoutelist}">
+							<c:choose>
+								<c:when test="${item == stu.empRoute}">
+									<option selected>${item}</option>
+								</c:when>
+								<c:otherwise>
+									<option>${item}</option>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>						
+					</select></label></p>
+				<p><label>関連 
+					<select name="state">
+						<c:forEach var="item" items="${relationlist}">
+							<c:choose>
+								<c:when test="${item == stu.relation}">
+									<option selected>${item}</option>
+								</c:when>
+								<c:otherwise>
+									<option>${item}</option>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>						
+					</select></label></p>
 				<p><label>職種 <input type="text" name="no" value="${stu.position}"></label></p>
 				<p><label>内定日 <input type="text" name="name" value="${stu.decidedDate}"></label></p>
 				

@@ -53,7 +53,7 @@
 			<p> 令和4年度入校式：令和4年4月11日（月）  前期修了式：令和4年9月27日（火）  後期入校式：令和4年10月3日（月）  修了式：令和5年3月10日（金）</p>
 	
 			<form action="ManagementServlet" method="post">
-				<button type="submit">編集する</button>
+				<button type="submit" name="btn" value="edit">編集する</button>
 			<table>
 				<thead>
 					<tr>

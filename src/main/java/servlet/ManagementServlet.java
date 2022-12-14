@@ -76,32 +76,37 @@ public class ManagementServlet extends HttpServlet {
 		StudentCsvBean[] dataArray = new StudentCsvBean[20];
 		StudentCsvBean stu = new StudentCsvBean();
 		
+		// CSVファイル読み込み
 		dataArray = scl.csvReader();
 		
-		Integer number = 0;
-		  for(int n = 1; n < dataArray.length; n++) {
-			  if(dataArray[n].getId() == null) {
-				  continue;
-			  }
-			  number++;
-		  }
-		
+
 		// リクエストパラメータの取得
 		request.setCharacterEncoding("UTF-8");
-		String id = request.getParameter("id");
-		int no = Integer.parseInt(id);
+		String btn = request.getParameter("btn");
 		
-		//
-		System.out.println(id);
-		// 選択した生徒をリクエストスコープに保存
-		stu = dataArray[no];
-		request.setAttribute("stu", stu);
+		System.out.println(btn);
 		
-		// セレクトボックス
+		switch (btn) {
+			case "update":
+				
+				break;
+			
+			case "edit":
+				String id = request.getParameter("id");
+				int no = Integer.parseInt(id);
+				
+				//
+				System.out.println(id);
+				// 選択した生徒をリクエストスコープに保存
+				stu = dataArray[no];
+				request.setAttribute("stu", stu);
+								
+				// stuManagement.jspへフォワード
+				RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/editStuCsv.jsp");
+				dispatcher.forward(request, response);
+				break;
+		}
 		
-		// stuManagement.jspへフォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/editStuCsv.jsp");
-		dispatcher.forward(request, response);
 
 	}
 

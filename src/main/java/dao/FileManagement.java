@@ -2,8 +2,11 @@ package dao;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 
 import model.bean.StudentCsvBean;
 
@@ -45,7 +48,7 @@ public class FileManagement {
 				dataArray[i].setValue(data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8],data[9],data[10],data[11],data[12],data[13],data[14],data[15],data[16],data[17]);
 			}
 			
-			// 出力
+			// チェック用コンソール出力
 			  for (int i = 0; i < dataArray.length; i++) {
 				  System.out.println("dataArray" + i + ":" + dataArray[i].getId());
 				  }
@@ -61,5 +64,48 @@ public class FileManagement {
 	}
 	
 	// csvファイル書き込み
+	public void csvWriter() {
+		// 書き込むファイルのパス
+		String path = "C:/Users/s2104/Desktop/csv/students.csv";
+
+		try(FileOutputStream stream = new FileOutputStream(path);
+		    OutputStreamWriter writer = new OutputStreamWriter(stream);) {
+
+			StudentCsvBean[] newDataACsv = new StudentCsvBean[20];
+			
+			
+			// csvReader() 呼び出し
+			StudentCsvBean[] dataArr = csvReader();
+			
+			// 任意の行上書き
+			
+			
+			// 
+			
+
+		    writer.write(newDataACsv);
+
+		} catch (FileNotFoundException e) {
+		    e.printStackTrace();
+		} catch (IOException e) {
+		    e.printStackTrace();
+		} finally {
+		    writer.close();
+		    stream.close();
+		}
+
+
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
