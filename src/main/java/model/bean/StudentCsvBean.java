@@ -3,26 +3,52 @@ package model.bean;
 import java.io.Serializable;
 
 public class StudentCsvBean implements Serializable {
-	private String id;
-	private String category;
-	private String name;
-	private String jurisdiction;
-	private String newGrad;
-	private String apply;
-	private String jobCard;
-	private String pref;
-	private String coName;
-	private String internship;
-	private String workAddress;
-	private String empStatus;
-	private String empInsurance;
-	private String empperiod;
-	private String empRoute;
-	private String relation;
-	private String position;
-	private String decidedDate;
+	private String id;					// 入力
+	private String category;			// 科名
+	private String name;				// 氏名
+	private String jurisdiction;		// 管轄
+	private String newGrad;			// 新卒
+	private String apply;				// 適用
+	private String jobCard;			// ジョブカード
+	private String pref;					// 希望地
+	private String coName;			// 就職先
+	private String internship;			// 実習先
+	private String workAddress;	// 勤務地住所
+	private String empStatus;		// 雇用形態
+	private String empInsurance;	// 雇用保険
+	private String empperiod;		// 雇用期間
+	private String empRoute;		// 就職経路
+	private String relation;			// 関連
+	private String position;			// 職種
+	private String decidedDate;		// 内定日
 
+	// コンストラクタ
+	public StudentCsvBean() {
+	}
 	
+	public StudentCsvBean(String id, String category, String name, String jurisdiction, String newGrad, String apply, String jobCard, String pref, String coName, String internship, String workAddress, String empStatus, String empInsurance, String empperiod, String empRoute, String relation, String position, String decidedDate){
+		this.id = id;
+		this.category = category;		
+		this.name = name;
+		this.jurisdiction = jurisdiction;
+		this.newGrad = newGrad;
+		this.apply = apply;
+		this.jobCard = jobCard;
+		this.pref = pref;
+		this.coName = coName;
+		this.internship = internship;
+		this.workAddress = workAddress;
+		this.empStatus = empStatus;
+		this.empInsurance = empInsurance;
+		this.empperiod = empperiod;
+		this.empRoute = empRoute;
+		this.relation = relation;
+		this.position = position;
+		this.decidedDate = decidedDate;
+	}
+	
+	
+	// メソッド
 	public void setValue(String id, String category, String name, String jurisdiction, String newGrad, String apply, String jobCard, String pref, String coName, String internship, String workAddress, String empStatus, String empInsurance, String empperiod, String empRoute, String relation, String position, String decidedDate) {
 		this.id = id;
 		this.category = category;		

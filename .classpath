@@ -13,5 +13,6 @@
 	<classpathentry kind="lib" path="C:/jstl/taglibs-standard-impl-1.2.5.jar"/>
 	<classpathentry kind="lib" path="C:/jstl/taglibs-standard-jstlel-1.2.5.jar"/>
 	<classpathentry kind="lib" path="C:/jstl/taglibs-standard-spec-1.2.5.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/tomcat/9/lib/servlet-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
