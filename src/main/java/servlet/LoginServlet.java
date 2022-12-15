@@ -96,6 +96,10 @@ public class LoginServlet extends HttpServlet {
 				// リクエストスコープに保存
 				request.setAttribute("stulist", stuList);
 				
+				// EmploymentData headerリスト
+				List<String> headerList = new ArrayList<String>(Arrays.asList("入力", "科名", "氏名", "管轄", "新卒", "適用", "ジョブカード", "希望地", "就職先", "実習先", "勤務地住所", "雇用形態", "雇用保険", "雇用期間", "就職経路", "関連", "職種", "内定日"));
+				
+				
 				// selectBOX用リスト
 				// 就活状況
 				List<String> selectList = new ArrayList<String>(Arrays.asList("内定", "選考中", "書類作成中", "応募済み", "未応募"));
@@ -126,6 +130,7 @@ public class LoginServlet extends HttpServlet {
 				
 				
 				// アプリケーションスコープに保存
+				app.setAttribute("headerlist", headerList);
 				app.setAttribute("selectlist", selectList);
 				app.setAttribute("categorylist", categoryList);
 				app.setAttribute("jurisdictionlist", jurisdictionList);

@@ -73,7 +73,7 @@ function check(){
 			<form action="ManagementServlet" method="post" onSubmit="return check()">
 				<p><label>入力 <input type="text" name="id" value="${stu.id}"></label></p>
 				<p><label>科名 
-					<select name="state">
+					<select name="category">
 						<c:forEach var="item" items="${categorylist}">
 							<c:choose>
 								<c:when test="${item == stu.category}">
@@ -87,7 +87,7 @@ function check(){
 					</select></label></p>
 				<p><label>氏名 <input type="text" name="name" value="${stu.name}"></label></p>
 				<p><label>管轄 
-					<select name="state">
+					<select name="jurisdiction">
 						<c:forEach var="item" items="${jurisdictionlist}">
 							<c:choose>
 								<c:when test="${item == stu.jurisdiction}">
@@ -100,7 +100,7 @@ function check(){
 						</c:forEach>						
 					</select></label></p>
 				<p><label>新卒 
-					<select name="state">
+					<select name="newGrad">
 						<c:forEach var="item" items="${newGradlist}">
 							<c:choose>
 								<c:when test="${item == stu.newGrad}">
@@ -113,7 +113,7 @@ function check(){
 						</c:forEach>						
 					</select></label></p>
 				<p><label>適用 
-					<select name="state">
+					<select name="apply">
 						<c:forEach var="item" items="${applylist}">
 							<c:choose>
 								<c:when test="${item == stu.apply}">
@@ -126,7 +126,7 @@ function check(){
 						</c:forEach>						
 					</select></label></p>
 				<p><label>ジョブカード 
-					<select name="state">
+					<select name="jobCard">
 						<c:forEach var="item" items="${jobCardlist}">
 							<c:choose>
 								<c:when test="${item == stu.jobCard}">
@@ -139,7 +139,7 @@ function check(){
 						</c:forEach>						
 					</select></label></p>
 				<p><label>希望地 
-					<select name="state">
+					<select name="pref">
 						<c:forEach var="item" items="${preflist}">
 							<c:choose>
 								<c:when test="${item == stu.pref}">
@@ -151,9 +151,9 @@ function check(){
 							</c:choose>
 						</c:forEach>						
 					</select></label></p>
-				<p><label>就職先 <input type="text" name="id" value="${stu.coName}"></label></p>
+				<p><label>就職先 <input type="text" name="coName" value="${stu.coName}"></label></p>
 				<p><label>実習先 
-					<select name="state">
+					<select name="internship">
 						<c:forEach var="item" items="${internshiplist}">
 							<c:choose>
 								<c:when test="${item == stu.internship}">
@@ -165,9 +165,9 @@ function check(){
 							</c:choose>
 						</c:forEach>						
 					</select></label></p>
-				<p><label>勤務地住所 <input type="text" name="name" value="${stu.workAddress}"></label></p>
+				<p><label>勤務地住所 <input type="text" name="workAddress" value="${stu.workAddress}"></label></p>
 				<p><label>雇用形態 
-					<select name="state">
+					<select name="empStatus">
 						<c:forEach var="item" items="${empStatuslist}">
 							<c:choose>
 								<c:when test="${item == stu.empStatus}">
@@ -180,7 +180,7 @@ function check(){
 						</c:forEach>						
 					</select></label></p>
 				<p><label>雇用保険 
-					<select name="state">
+					<select name="empInsurance">
 						<c:forEach var="item" items="${empInsurancelist}">
 							<c:choose>
 								<c:when test="${item == stu.empInsurance}">
@@ -193,7 +193,7 @@ function check(){
 						</c:forEach>						
 					</select></label></p>
 				<p><label>雇用期間 
-					<select name="state">
+					<select name="empperiod">
 						<c:forEach var="item" items="${empperiodlist}">
 							<c:choose>
 								<c:when test="${item == stu.empperiod}">
@@ -206,7 +206,7 @@ function check(){
 						</c:forEach>						
 					</select></label></p>
 				<p><label>就職経路 
-					<select name="state">
+					<select name="empRoute">
 						<c:forEach var="item" items="${empRoutelist}">
 							<c:choose>
 								<c:when test="${item == stu.empRoute}">
@@ -219,7 +219,7 @@ function check(){
 						</c:forEach>						
 					</select></label></p>
 				<p><label>関連 
-					<select name="state">
+					<select name="relation">
 						<c:forEach var="item" items="${relationlist}">
 							<c:choose>
 								<c:when test="${item == stu.relation}">
@@ -231,27 +231,8 @@ function check(){
 							</c:choose>
 						</c:forEach>						
 					</select></label></p>
-				<p><label>職種 <input type="text" name="no" value="${stu.position}"></label></p>
-				<p><label>内定日 <input type="text" name="name" value="${stu.decidedDate}"></label></p>
-				
-				
-				
-				
-				<p><label>就活状況
-					<select name="state">
-						<c:forEach var="item" items="${selectlist}">
-							<c:choose>
-								<c:when test="${item == stu1.state}">
-									<option selected>${item}</option>
-								</c:when>
-								<c:otherwise>
-									<option>${item}</option>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>						
-					</select>
-				</label></p>
-				<p><label>企業名 <input type="text" name="coName" value="${stu1.coName}"></label></p>
+				<p><label>職種 <input type="text" name="position" value="${stu.position}"></label></p>
+				<p><label>内定日 <input type="text" name="decidedDate" value="${stu.decidedDate}"></label></p>
 				<p><button type="submit" name="btn" value="update">更新</button></p>
 			</form>
 			

@@ -52,52 +52,40 @@
 			<p> 令和3年度 普通課程4科入校生（2年次） 入校式：令和3年4月12日（月）</p>
 			<p> 令和4年度入校式：令和4年4月11日（月）  前期修了式：令和4年9月27日（火）  後期入校式：令和4年10月3日（月）  修了式：令和5年3月10日（金）</p>
 			
-			<a href="ManagementServlet?id=edit"><ion-icon name="pencil-outline"></ion-icon>編集</a>
+			<!-- <a href="ManagementServlet?id=select"><ion-icon name="pencil-outline"></ion-icon>編集</a> -->
+			<form action="<%=request.getContextPath()%>/ManagementServlet"method="post">
+				<button type="submit" name="btn" value="select"><ion-icon name="pencil-outline">編集</button>
+			</form>
 	
 			<table>
 				<thead>
 					<tr>
-						<th><c:out value="${dataArray[0].getId()}" /></th>
-						<th><c:out value="${dataArray[0].getCategory()}" /></th>
-						<th><c:out value="${dataArray[0].getName()}" /></th>
-						<th><c:out value="${dataArray[0].getJurisdiction()}" /></th>
-						<th><c:out value="${dataArray[0].getNewGrad()}" /></th>
-						<th><c:out value="${dataArray[0].getApply()}" /></th>
-						<th><c:out value="${dataArray[0].getJobCard()}" /></th>
-						<th><c:out value="${dataArray[0].getPref()}" /></th>
-						<th><c:out value="${dataArray[0].getCoName()}" /></th>
-						<th><c:out value="${dataArray[0].getInternship()}" /></th>
-						<th><c:out value="${dataArray[0].getWorkAddress()}" /></th>
-						<th><c:out value="${dataArray[0].getEmpStatus()}" /></th>
-						<th><c:out value="${dataArray[0].getEmpInsurance()}" /></th>
-						<th><c:out value="${dataArray[0].getEmpperiod()}" /></th>
-						<th><c:out value="${dataArray[0].getEmpRoute()}" /></th>
-						<th><c:out value="${dataArray[0].getRelation()}" /></th>
-						<th><c:out value="${dataArray[0].getPosition()}" /></th>
-						<th><c:out value="${dataArray[0].getDecidedDate()}" /></th>
+					<c:forEach var="item" items="${headerlist}">
+						<th><c:out value="${item}" /></th>
+					</c:forEach>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="i" begin="1" end="${count}" step="1">
+					<c:forEach var="stu" items="${dataArray}">
 						<tr>
-							<td><c:out value="${dataArray[i].getId()}" /></td>
-							<td><c:out value="${dataArray[i].getCategory()}" /></td>
-							<td><c:out value="${dataArray[i].getName()}" /></td>
-							<td><c:out value="${dataArray[i].getJurisdiction()}" /></td>
-							<td><c:out value="${dataArray[i].getNewGrad()}" /></td>
-							<td><c:out value="${dataArray[i].getApply()}" /></td>
-							<td><c:out value="${dataArray[i].getJobCard()}" /></td>
-							<td><c:out value="${dataArray[i].getPref()}" /></td>
-							<td><c:out value="${dataArray[i].getCoName()}" /></td>
-							<td><c:out value="${dataArray[i].getInternship()}" /></td>
-							<td><c:out value="${dataArray[i].getWorkAddress()}" /></td>
-							<td><c:out value="${dataArray[i].getEmpStatus()}" /></td>
-							<td><c:out value="${dataArray[i].getEmpInsurance()}" /></td>
-							<td><c:out value="${dataArray[i].getEmpperiod()}" /></td>
-							<td><c:out value="${dataArray[i].getEmpRoute()}" /></td>
-							<td><c:out value="${dataArray[i].getRelation()}" /></td>
-							<td><c:out value="${dataArray[i].getPosition()}" /></td>
-							<td><c:out value="${dataArray[i].getDecidedDate()}" /></td>
+							<td><c:out value="${stu.getId()}" /></td>
+							<td><c:out value="${stu.getCategory()}" /></td>
+							<td><c:out value="${stu.getName()}" /></td>
+							<td><c:out value="${stu.getJurisdiction()}" /></td>
+							<td><c:out value="${stu.getNewGrad()}" /></td>
+							<td><c:out value="${stu.getApply()}" /></td>
+							<td><c:out value="${stu.getJobCard()}" /></td>
+							<td><c:out value="${stu.getPref()}" /></td>
+							<td><c:out value="${stu.getCoName()}" /></td>
+							<td><c:out value="${stu.getInternship()}" /></td>
+							<td><c:out value="${stu.getWorkAddress()}" /></td>
+							<td><c:out value="${stu.getEmpStatus()}" /></td>
+							<td><c:out value="${stu.getEmpInsurance()}" /></td>
+							<td><c:out value="${stu.getEmpperiod()}" /></td>
+							<td><c:out value="${stu.getEmpRoute()}" /></td>
+							<td><c:out value="${stu.getRelation()}" /></td>
+							<td><c:out value="${stu.getPosition()}" /></td>
+							<td><c:out value="${stu.getDecidedDate()}" /></td>
 						</tr>
 					</c:forEach>
 				</tbody>
