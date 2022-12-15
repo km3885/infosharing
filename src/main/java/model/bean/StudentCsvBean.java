@@ -3,7 +3,7 @@ package model.bean;
 import java.io.Serializable;
 
 public class StudentCsvBean implements Serializable {
-	private String id;					// 入力
+	private int id;					// 入力
 	private String category;			// 科名
 	private String name;				// 氏名
 	private String jurisdiction;		// 管轄
@@ -26,7 +26,7 @@ public class StudentCsvBean implements Serializable {
 	public StudentCsvBean() {
 	}
 	
-	public StudentCsvBean(String id, String category, String name, String jurisdiction, String newGrad, String apply, String jobCard, String pref, String coName, String internship, String workAddress, String empStatus, String empInsurance, String empperiod, String empRoute, String relation, String position, String decidedDate){
+	public StudentCsvBean(int id, String category, String name, String jurisdiction, String newGrad, String apply, String jobCard, String pref, String coName, String internship, String workAddress, String empStatus, String empInsurance, String empperiod, String empRoute, String relation, String position, String decidedDate){
 		this.id = id;
 		this.category = category;		
 		this.name = name;
@@ -49,7 +49,7 @@ public class StudentCsvBean implements Serializable {
 	
 	
 	// メソッド
-	public void setValue(String id, String category, String name, String jurisdiction, String newGrad, String apply, String jobCard, String pref, String coName, String internship, String workAddress, String empStatus, String empInsurance, String empperiod, String empRoute, String relation, String position, String decidedDate) {
+	public void setValue(int id, String category, String name, String jurisdiction, String newGrad, String apply, String jobCard, String pref, String coName, String internship, String workAddress, String empStatus, String empInsurance, String empperiod, String empRoute, String relation, String position, String decidedDate) {
 		this.id = id;
 		this.category = category;		
 		this.name = name;
@@ -71,10 +71,10 @@ public class StudentCsvBean implements Serializable {
 	}
 		
 	// getter/setter
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getCategory() {

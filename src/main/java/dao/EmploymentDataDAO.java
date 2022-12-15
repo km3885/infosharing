@@ -38,7 +38,7 @@ public class EmploymentDataDAO {
 			int i = 0;
 			while (rs.next()) {
 				// 結果票からデータを取得
-				String id = rs.getString("id");
+				int id = rs.getInt("id");
 				String category = rs.getString("category");
 				String name = rs.getString("name");
 				String jurisdiction = rs.getString("jurisdiction");
@@ -58,8 +58,7 @@ public class EmploymentDataDAO {
 				String decidedDate = rs.getString("decidedDate");
 				// 結果表からのデータをもとに、1人分の就職データを持つインスタンスを生成して、配列に追加
 				StudentCsvBean stu = new StudentCsvBean(id, category, name, jurisdiction, newGrad, apply, jobCard, pref,  coName, internship, workAddress, empStatus, empInsurance, empperiod, empRoute, relation, position, decidedDate);
-				System.out.println(stu.getId());
-				System.out.println(i);
+//				System.out.println(stu.getId());
 				sEmpData[i++] = stu;
 			}
 			// forName()で例外発生
@@ -105,7 +104,7 @@ public class EmploymentDataDAO {
 			PreparedStatement pStmt = con.prepareStatement(sql);
 			
 			// sql分に値をセット
-			pStmt.setString(1, stu2.getId());
+			pStmt.setInt(1, stu2.getId());
 			pStmt.setString(2, stu2.getCategory());
 			pStmt.setString(3, stu2.getName());
 			pStmt.setString(4, stu2.getJurisdiction());
@@ -123,7 +122,7 @@ public class EmploymentDataDAO {
 			pStmt.setString(16, stu2.getRelation());
 			pStmt.setString(17, stu2.getPosition());
 			pStmt.setString(18, stu2.getDecidedDate());
-			pStmt.setString(19, stu2.getId());
+			pStmt.setInt(19, stu2.getId());
 
 			// UPDATE文を実行し、結果票を取得
 			int result = pStmt.executeUpdate();

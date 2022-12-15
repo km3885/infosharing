@@ -25,7 +25,7 @@ public class StuinfoServlet extends HttpServlet {
 	 */
 	public StuinfoServlet() {
 		super();
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	/**
@@ -34,40 +34,38 @@ public class StuinfoServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		//
-		request.setCharacterEncoding("UTF-8");
-		String key = request.getParameter("btn");
-		String trash = request.getParameter("trash");
+		// 宣言。初期化
 		int id;
 		StudentBean stu;
 		StuInfoLogic sl = new StuInfoLogic();
 		StudentBean stu1 = new StudentBean();
-
-
-		// パラメータチェック
-		System.out.println("パラメータ_btn:" + key);
-		System.out.println("パラメータ_trash:" + trash);
-
+		RequestDispatcher dispatcher;
 		
-		if (key == null && trash == null) {
-			// 訓練生情報の取得
-			List<StudentBean> stuList = sl.findAccount();
-			// リクエストスコープに保存
-			request.setAttribute("stulist", stuList);
-			
-			// stuinfo.jspへフォワード
-			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinfo.jsp");
-			dispatcher.forward(request, response);	
-		}
+		// リクエストパラメータ取得
+		request.setCharacterEncoding("UTF-8");
+		String btn = request.getParameter("btn");
 		
-		switch(key) {
-			case "new":
-				// 新規登録画面へフォワード
-				RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/register.jsp");
+		// 就活状況の取得
+		List<StudentBean> stuList = sl.findAccount();
+		// リクエストスコープに保存
+		request.setAttribute("stulist", stuList);
+
+	
+		// パラメータによってフォワード先を変更
+		switch(btn) {
+			case "index":
+				// stuinfo.jspへフォワード
+				dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinfo.jsp");
 				dispatcher.forward(request, response);	
 				break;
-				
+			case "create":
+				// 新規登録画面へフォワード
+				dispatcher = request.getRequestDispatcher("WEB-INF/jsp/register.jsp");
+				dispatcher.forward(request, response);	
+				break;
+		}
+		
+					
 			case "999":
 				id = Integer.parseInt(trash);
 				stu = new StudentBean(id);
@@ -75,7 +73,7 @@ public class StuinfoServlet extends HttpServlet {
 				// リクエストスコープにインスタンスを保存
 				request.setAttribute("stu1", stu1);
 				// delete.jspへフォワード
-				dispatcher = request.getRequestDispatcher("WEB-INF/jsp/delete.jsp");
+				dispatcher = request.getRequestDispatcher("WEB-INF/jsp/deleteStudent.jsp");
 				dispatcher.forward(request, response);	
 				break;
 				
@@ -114,17 +112,17 @@ public class StuinfoServlet extends HttpServlet {
 		stu.setCoName(request.getParameter("coName"));
 		
 		// パラメータチェック
-		System.out.println(stu.getId());
-		System.out.println(stu.getNo());
-		System.out.println(stu.getName());
-		System.out.println(stu.getState());
-		System.out.println(stu.getCoName());
+//		System.out.println(stu.getId());
+//		System.out.println(stu.getNo());
+//		System.out.println(stu.getName());
+//		System.out.println(stu.getState());
+//		System.out.println(stu.getCoName());
 		
 		String btn = request.getParameter("btn");
 		// 
 		
 		switch(btn) {
-			case "new":
+			case "":
 				boo = stuinfo.insertStudent(stu);
 				break;
 				

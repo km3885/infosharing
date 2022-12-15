@@ -85,7 +85,7 @@ function check(){
 							</c:choose>
 						</c:forEach>						
 					</select></label></p>
-				<p><label>氏名 <input type="text" name="name" value="${stu.name}"></label></p>
+				<p><label>氏名 <input type="text" name="name" value="${stuselect.name}"></label></p>
 				<p><label>管轄 
 					<select name="jurisdiction">
 						<c:forEach var="item" items="${jurisdictionlist}">

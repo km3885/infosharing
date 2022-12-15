@@ -66,26 +66,26 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="stu" items="${dataArray}">
+					<c:forEach var="student" items="${dataArray}">
 						<tr>
-							<td><c:out value="${stu.getId()}" /></td>
-							<td><c:out value="${stu.getCategory()}" /></td>
-							<td><c:out value="${stu.getName()}" /></td>
-							<td><c:out value="${stu.getJurisdiction()}" /></td>
-							<td><c:out value="${stu.getNewGrad()}" /></td>
-							<td><c:out value="${stu.getApply()}" /></td>
-							<td><c:out value="${stu.getJobCard()}" /></td>
-							<td><c:out value="${stu.getPref()}" /></td>
-							<td><c:out value="${stu.getCoName()}" /></td>
-							<td><c:out value="${stu.getInternship()}" /></td>
-							<td><c:out value="${stu.getWorkAddress()}" /></td>
-							<td><c:out value="${stu.getEmpStatus()}" /></td>
-							<td><c:out value="${stu.getEmpInsurance()}" /></td>
-							<td><c:out value="${stu.getEmpperiod()}" /></td>
-							<td><c:out value="${stu.getEmpRoute()}" /></td>
-							<td><c:out value="${stu.getRelation()}" /></td>
-							<td><c:out value="${stu.getPosition()}" /></td>
-							<td><c:out value="${stu.getDecidedDate()}" /></td>
+							<td><c:out value="${student.getId()}" /></td>
+							<td><c:out value="${student.getCategory()}" /></td>
+							<td><c:out value="${student.getName()}" /></td>
+							<td><c:out value="${student.getJurisdiction()}" /></td>
+							<td><c:out value="${student.getNewGrad()}" /></td>
+							<td><c:out value="${student.getApply()}" /></td>
+							<td><c:out value="${student.getJobCard()}" /></td>
+							<td><c:out value="${student.getPref()}" /></td>
+							<td><c:out value="${student.getCoName()}" /></td>
+							<td><c:out value="${student.getInternship()}" /></td>
+							<td><c:out value="${student.getWorkAddress()}" /></td>
+							<td><c:out value="${student.getEmpStatus()}" /></td>
+							<td><c:out value="${student.getEmpInsurance()}" /></td>
+							<td><c:out value="${student.getEmpperiod()}" /></td>
+							<td><c:out value="${student.getEmpRoute()}" /></td>
+							<td><c:out value="${student.getRelation()}" /></td>
+							<td><c:out value="${sstudenttu.getPosition()}" /></td>
+							<td><c:out value="${student.getDecidedDate()}" /></td>
 						</tr>
 					</c:forEach>
 				</tbody>

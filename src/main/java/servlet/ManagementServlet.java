@@ -24,7 +24,7 @@ public class ManagementServlet extends HttpServlet {
      */
     public ManagementServlet() {
         super();
-        // TODO Auto-generated constructor stub
+        // 
     }
 
 	/**
@@ -43,17 +43,6 @@ public class ManagementServlet extends HttpServlet {
 		// 就職データ情報をリクエストスコープに保存
 		  request.setAttribute("dataArray", dataArray);
 
-		// リクエストパラメータの取得
-			request.setCharacterEncoding("UTF-8");
-			String id = request.getParameter("id");
-			
-//			if(id != null) {
-//				// editSelectStu.jspへフォワード
-//				RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/editSelectStu.jsp");
-//				dispatcher.forward(request, response);
-//			}
-//		
-
 		// stuManagement.jspへフォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuManagement.jsp");
 			dispatcher.forward(request, response);
@@ -66,7 +55,7 @@ public class ManagementServlet extends HttpServlet {
 		// 宣言・初期化
 		StuEmpLogic scl = new StuEmpLogic();
 		StudentCsvBean[] dataArray = new StudentCsvBean[20];
-		StudentCsvBean stu = new StudentCsvBean();
+		StudentCsvBean stuSelect = new StudentCsvBean();
 		StudentCsvBean stu2 = new StudentCsvBean();
 		RequestDispatcher dispatcher;
 		boolean boo;
@@ -95,9 +84,11 @@ public class ManagementServlet extends HttpServlet {
 				String id = request.getParameter("id");
 				int no = Integer.parseInt(id);
 				
+				System.out.println(id);
+				
 				// 選択した更新対象訓練生をリクエストスコープに保存
-				stu = dataArray[no];
-				request.setAttribute("stu", stu);
+				stuSelect = dataArray[no];
+				request.setAttribute("stuselect", stuSelect);
 				
 				// stuManagement.jspへフォワード
 				dispatcher = request.getRequestDispatcher("WEB-INF/jsp/editStuCsv.jsp");
@@ -107,7 +98,8 @@ public class ManagementServlet extends HttpServlet {
 			case "update":
 				// 就職データ更新（1人分）
 				// 更新情報を受け取り訓練生インスタンスを生成
-				stu2.setId(request.getParameter("id"));
+				String sid = request.getParameter("id");
+				stu2.setId(Integer.parseInt(sid));
 				stu2.setCategory(request.getParameter("category"));
 				stu2.setName(request.getParameter("name"));
 				stu2.setJurisdiction(request.getParameter("jurisdiction"));
@@ -129,19 +121,23 @@ public class ManagementServlet extends HttpServlet {
 				// 1人分の就職データを更新
 				boo = scl.updataEmpdata(stu2);
 				
-				// 更新後の就職データを取得
-				dataArray = scl.getEmpData();
-				
-				// 更新後の就職データ情報をリクエストスコープに保存
-				  request.setAttribute("dataArray", dataArray);
-				
-				// 更新が成功したら訓練生情報管理画面(stuManagement)へフォワード
-				dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuManagement.jsp");
-				dispatcher.forward(request, response);
+					if(boo) {
+						// 更新成功の場合、stuManagement.jspへフォワード
+						// 更新後の就職データを取得
+						dataArray = scl.getEmpData();
+						// 更新後の就職データ情報をリクエストスコープに保存
+						request.setAttribute("dataArray", dataArray);
+						// 更新が成功したら訓練生情報管理画面(stuManagement)へフォワード
+						dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuManagement.jsp");
+						dispatcher.forward(request, response);
+					} else {
+						// 更新失敗の場合、
+					}
+						
 				break;
 			
 		}
-	
+		
 		
 
 	}
