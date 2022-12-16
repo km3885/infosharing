@@ -26,7 +26,7 @@
 						class="icon"> <ion-icon name="home-outline"></ion-icon>
 					</span> <span class="title">ホーム</span>
 				</a></li>
-				<li class="list"><a href="StuinfoServlet"> <span
+				<li class="list"><a href="StuinfoServlet?btn=normal"> <span
 						class="icon"><ion-icon name="walk-outline"></ion-icon> 
 					</span> <span class="title">就活状況管理</span>
 				</a></li>
@@ -52,6 +52,7 @@
 			<p> 令和3年度 普通課程4科入校生（2年次） 入校式：令和3年4月12日（月）</p>
 			<p> 令和4年度入校式：令和4年4月11日（月）  前期修了式：令和4年9月27日（火）  後期入校式：令和4年10月3日（月）  修了式：令和5年3月10日（金）</p>
 	
+			
 			<form action="ManagementServlet" method="post">
 				<button type="submit" name="btn" value="edit">編集する</button>
 			<table>

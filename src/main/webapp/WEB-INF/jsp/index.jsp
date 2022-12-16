@@ -31,7 +31,7 @@
 						class="icon"> <ion-icon name="home-outline"></ion-icon>
 					</span> <span class="title">ホーム</span>
 				</a></li>
-				<li class="list"><a href="StuinfoServlet"> <span
+				<li class="list"><a href="StuinfoServlet?btn=normal"><span
 						class="icon"><ion-icon name="walk-outline"></ion-icon> 
 					</span> <span class="title">就活状況管理</span>
 				</a></li>

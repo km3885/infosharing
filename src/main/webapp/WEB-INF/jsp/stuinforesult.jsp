@@ -27,7 +27,7 @@
 							<ion-icon name="home-outline"></ion-icon>
 					</span> <span class="title">ホーム</span>
 				</a></li>
-				<li class="list active"><a href="StuinfoServlet"> <span
+				<li class="list active"><a href="StuinfoServlet?btn=normal"> <span
 						class="icon"> <ion-icon name="people-circle-outline"></ion-icon>
 					</span> <span class="title">訓練生情報</span>
 				</a></li>

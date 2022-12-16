@@ -87,7 +87,7 @@ public class ManagementServlet extends HttpServlet {
 				System.out.println(id);
 				
 				// 選択した更新対象訓練生をリクエストスコープに保存
-				stuSelect = dataArray[no];
+				stuSelect = dataArray[--no];
 				request.setAttribute("stuselect", stuSelect);
 				
 				// stuManagement.jspへフォワード

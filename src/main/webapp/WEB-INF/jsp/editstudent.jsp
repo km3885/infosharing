@@ -46,7 +46,7 @@ function check(){
 						class="icon"> <ion-icon name="home-outline"></ion-icon>
 					</span> <span class="title">ホーム</span>
 				</a></li>
-				<li class="list active"><a href="StuinfoServlet"> <span
+				<li class="list active"><a href="StuinfoServlet?btn=normal"> <span
 						class="icon"><ion-icon name="walk-outline"></ion-icon> 
 					</span> <span class="title">就活状況管理</span>
 				</a></li>
@@ -70,15 +70,15 @@ function check(){
 			<h2>訓練生情報管理</h2>
 			Edit画面
 			
-			<form action="StuinfoServlet" method="post" onSubmit="return check()">
-				<p><label>ID <input type="text" name="id" value="${stu1.id}"></label></p>
-				<p><label>番号 <input type="text" name="no" value="${stu1.no}"></label></p>
-				<p><label>名前 <input type="text" name="name" value="${stu1.name}"></label></p>
+			<form action="StuinfoServlet?hoge=bar" method="post" onSubmit="return check()">
+				<p><label>ID <input type="text" name="id" value="${editstu.id}"></label></p>
+				<p><label>番号 <input type="text" name="no" value="${editstu.no}"></label></p>
+				<p><label>名前 <input type="text" name="name" value="${editstu.name}"></label></p>
 				<p><label>就活状況
 					<select name="state">
 						<c:forEach var="item" items="${selectlist}">
 							<c:choose>
-								<c:when test="${item == stu1.state}">
+								<c:when test="${item == editstu.state}">
 									<option selected>${item}</option>
 								</c:when>
 								<c:otherwise>
@@ -88,7 +88,7 @@ function check(){
 						</c:forEach>						
 					</select>
 				</label></p>
-				<p><label>企業名 <input type="text" name="coName" value="${stu1.coName}"></label></p>
+				<p><label>企業名 <input type="text" name="coName" value="${editstu.coName}"></label></p>
 				<p><button type="submit" name="btn" value="update">更新</button></p>
 			</form>
 			

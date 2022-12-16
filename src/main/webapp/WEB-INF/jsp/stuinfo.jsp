@@ -27,7 +27,7 @@
 						class="icon"> <ion-icon name="home-outline"></ion-icon>
 					</span> <span class="title">ホーム</span>
 				</a></li>
-				<li class="list active"><a href="StuinfoServlet"> <span
+				<li class="list active"><a href="StuinfoServlet?btn=normal"> <span
 						class="icon"><ion-icon name="walk-outline"></ion-icon> 
 					</span> <span class="title">就活状況管理</span>
 				</a></li>
@@ -63,7 +63,7 @@
 				</div>
 			</form>
 			<form action="<%=request.getContextPath()%>/StuinfoServlet"method="get">
-				<button type="submit" name="btn" value="new">新規登録</button>
+				<button type="submit" name="btn" value="create">新規登録</button>
 			</form>
 
 
@@ -104,16 +104,22 @@
 						<td><c:out value="${item.name}" /></td>
 						<td><c:out value="${item.state}" /></td>
 						<td><c:out value="${item.coName}" /></td>
-						<td><a href="StuinfoServlet?btn=<c:out value="${item.id}" />"><ion-icon
-									name="pencil-outline"></ion-icon></a></td>
-						<td><a href="StuinfoServlet?trash=<c:out value="${item.id}" />&btn=<c:out value="999" />"><ion-icon
-									name="trash-outline"></ion-icon></a></td>
+						<td>
+							<form action="<%=request.getContextPath()%>/StuinfoServlet?hoge=foo"method="post">
+								<input type="hidden" name="id" value="${item.id}">
+								<input type="submit" name="btn" value="edit"><ion-icon name="pencil-outline"></ion-icon>
+							</form>
+						</td>
+						<td>
+							<form action="<%=request.getContextPath()%>/StuinfoServlet?hoge=foo"method="post">
+								<input type="hidden" name="id" value="${item.id}">
+								<input type="submit" name="btn" value="trash"><ion-icon name="trash-outline"></ion-icon>
+							</form>
+						</td>
 					</tr>
 				</c:forEach>
-
 			</tbody>
 		</table>
-
 	</div>
 
 

@@ -35,10 +35,7 @@ public class StuinfoServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// 宣言。初期化
-		int id;
-		StudentBean stu;
 		StuInfoLogic sl = new StuInfoLogic();
-		StudentBean stu1 = new StudentBean();
 		RequestDispatcher dispatcher;
 		
 		// リクエストパラメータ取得
@@ -53,8 +50,8 @@ public class StuinfoServlet extends HttpServlet {
 	
 		// パラメータによってフォワード先を変更
 		switch(btn) {
-			case "index":
-				// stuinfo.jspへフォワード
+			case "normal":
+//				// stuinfo.jspへフォワード
 				dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinfo.jsp");
 				dispatcher.forward(request, response);	
 				break;
@@ -64,30 +61,9 @@ public class StuinfoServlet extends HttpServlet {
 				dispatcher.forward(request, response);	
 				break;
 		}
-		
-					
-			case "999":
-				id = Integer.parseInt(trash);
-				stu = new StudentBean(id);
-				stu1 = sl.findAccount(stu);
-				// リクエストスコープにインスタンスを保存
-				request.setAttribute("stu1", stu1);
-				// delete.jspへフォワード
-				dispatcher = request.getRequestDispatcher("WEB-INF/jsp/deleteStudent.jsp");
-				dispatcher.forward(request, response);	
-				break;
-				
-			default:
-				id = Integer.parseInt(key);
-				stu = new StudentBean(id);
-				stu1 = sl.findAccount(stu);
-				// リクエストスコープにインスタンスを保存
-				request.setAttribute("stu1", stu1);
-				// editstudent.jspへフォワード
-				dispatcher = request.getRequestDispatcher("WEB-INF/jsp/editstudent.jsp");
-				dispatcher.forward(request, response);	
-				break;
-		}
+		// stuinfo.jspへフォワード
+//		dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinfo.jsp");
+//		dispatcher.forward(request, response);	
 	}
 
 			
@@ -102,52 +78,68 @@ public class StuinfoServlet extends HttpServlet {
 		StudentBean stu = new StudentBean();
 		StuInfoLogic stuinfo = new StuInfoLogic();
 		boolean boo = false;
+		RequestDispatcher dispatcher;
+		StuInfoLogic sl = new StuInfoLogic();
 		
 		// リクエストパラメータの取得
 		request.setCharacterEncoding("UTF-8");
-		stu.setId(Integer.parseInt(request.getParameter("id")));
-		stu.setNo(request.getParameter("no"));
-		stu.setName(request.getParameter("name"));
-		stu.setState(request.getParameter("state"));
-		stu.setCoName(request.getParameter("coName"));
-		
-		// パラメータチェック
-//		System.out.println(stu.getId());
-//		System.out.println(stu.getNo());
-//		System.out.println(stu.getName());
-//		System.out.println(stu.getState());
-//		System.out.println(stu.getCoName());
-		
+		String hoge = request.getParameter("hoge");
 		String btn = request.getParameter("btn");
-		// 
 		
-		switch(btn) {
-			case "":
+		if(hoge.equals("foo")) {
+			String code = request.getParameter("id");
+			switch(btn) {	
+				case "edit":
+					int id = Integer.parseInt(code);
+					StudentBean editstu = new StudentBean(id);
+					editstu = sl.findAccount(editstu);
+					// リクエストスコープにインスタンスを保存
+					request.setAttribute("editstu", editstu);
+					// editstudent.jspへフォワード
+					dispatcher = request.getRequestDispatcher("WEB-INF/jsp/editstudent.jsp");
+					dispatcher.forward(request, response);	
+					break;
+					
+				case "trash":
+					int trashId = Integer.parseInt(code);
+					StudentBean trashStu = new StudentBean(trashId);
+					trashStu = sl.findAccount(trashStu);
+					// リクエストスコープにインスタンスを保存
+					request.setAttribute("trashStu", trashStu);
+					// delete.jspへフォワード
+					dispatcher = request.getRequestDispatcher("WEB-INF/jsp/deleteStudent.jsp");
+					dispatcher.forward(request, response);	
+					break;
+			}
+		} else {
+			stu.setNo(request.getParameter("no"));
+			stu.setName(request.getParameter("name"));
+			stu.setState(request.getParameter("state"));
+			stu.setCoName(request.getParameter("coName"));
+			
+			switch(btn) {
+			case "register":
 				boo = stuinfo.insertStudent(stu);
+				// stuinfo.jspへフォワード
+				dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinfo.jsp");
+				dispatcher.forward(request, response);	
 				break;
 				
 			case "update":
 				boo = stuinfo.updateStudent(stu);
+				// stuinfo.jspへフォワード
+				dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinfo.jsp");
+				dispatcher.forward(request, response);	
 				break;
 				
 			case "delete":
 				boo = stuinfo.deleteStudent(stu);
+				// stuinfo.jspへフォワード
+				dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinfo.jsp");
+				dispatcher.forward(request, response);	
 				break;
+				
+			}
 		}
-		
-		
-		// 
-		System.out.println("boo:" + boo);
-		
-		// 訓練生情報の取得
-		StuInfoLogic sl = new StuInfoLogic();
-		List<StudentBean> stuList = sl.findAccount();
-		// リクエストスコープに保存
-		request.setAttribute("stulist", stuList);
-		
-		// stuinforesult.jspへフォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinfo.jsp");
-		dispatcher.forward(request, response);
 	}
-
 }

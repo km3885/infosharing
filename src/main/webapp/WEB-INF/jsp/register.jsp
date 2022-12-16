@@ -46,7 +46,7 @@ function check(){
 						class="icon"> <ion-icon name="home-outline"></ion-icon>
 					</span> <span class="title">ホーム</span>
 				</a></li>
-				<li class="list active"><a href="StuinfoServlet"> <span
+				<li class="list active"><a href="StuinfoServlet?btn=normal"> <span
 						class="icon"><ion-icon name="walk-outline"></ion-icon> 
 					</span> <span class="title">就活状況管理</span>
 				</a></li>
@@ -70,7 +70,7 @@ function check(){
 			<h2>訓練生情報管理</h2>
 			Edit画面
 			
-			<form action="StuinfoServlet" method="post" onSubmit="return check()">
+			<form action="StuinfoServlet?hoge=bar" method="post" onSubmit="return check()">
 				<p><label>ID <input type="text" name="id" value="${stu1.id}"></label></p>
 				<p><label>番号 <input type="text" name="no" value="${stu1.no}"></label></p>
 				<p><label>名前 <input type="text" name="name" value="${stu1.name}"></label></p>
@@ -89,7 +89,7 @@ function check(){
 					</select>
 				</label></p>
 				<p><label>企業名 <input type="text" name="coName" value="${stu1.coName}"></label></p>
-				<p><button type="submit" name="btn" value="new">登録</button></p>
+				<p><button type="submit" name="btn" value="register">登録</button></p>
 			</form>
 			
 		</div>

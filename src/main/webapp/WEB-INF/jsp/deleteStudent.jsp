@@ -46,7 +46,7 @@ function check(){
 						class="icon"> <ion-icon name="home-outline"></ion-icon>
 					</span> <span class="title">ホーム</span>
 				</a></li>
-				<li class="list active"><a href="StuinfoServlet"> <span
+				<li class="list active"><a href="StuinfoServlet?btn=normal"> <span
 						class="icon"><ion-icon name="walk-outline"></ion-icon> 
 					</span> <span class="title">就活状況管理</span>
 				</a></li>
@@ -70,29 +70,29 @@ function check(){
 			<h2>訓練生情報管理</h2>
 			Edit画面
 			
-			<form action="StuinfoServlet" method="post" onSubmit="return check()">
+			<form action="StuinfoServlet?hoge=bar" method="post" onSubmit="return check()">
 				
 				<table>
 					<tbody>
 						<tr>
 							<th>ID</th>
-							<td><input type="hidden" name="id" value="${stu1.id}"><c:out value="${stu1.id}" /></td>
+							<td><input type="hidden" name="id" value="${trashStu.id}"><c:out value="${trashStu.id}" /></td>
 						</tr>
 						<tr>
 							<th>番号</th>
-							<td><input type="hidden" name="no" value="${stu1.no}"><c:out value="${stu1.no}" /></td>
+							<td><input type="hidden" name="no" value="${trashStu.no}"><c:out value="${trashStu.no}" /></td>
 						</tr>
 						<tr>
 							<th>名前</th>
-							<td><input type="hidden" name="name" value="${stu1.name}"><c:out value="${stu1.name}" /></td>
+							<td><input type="hidden" name="name" value="${trashStu.name}"><c:out value="${trashStu.name}" /></td>
 						</tr>
 						<tr>
 							<th>就活状況</th>
-							<td><input type="hidden" name="state" value="${stu1.state}"><c:out value="${stu1.state}" /></td>
+							<td><input type="hidden" name="state" value="${trashStu.state}"><c:out value="${trashStu.state}" /></td>
 						</tr>
 						<tr>
 							<th>企業名</th>
-							<td><input type="hidden" name="coName" value="${stu1.coName}"><c:out value="${stu1.coName}" /></td>
+							<td><input type="hidden" name="coName" value="${trashStu.coName}"><c:out value="${trashStu.coName}" /></td>
 						</tr>
 					</tbody>
 				</table>
