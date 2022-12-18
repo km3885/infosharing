@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import dao.EmploymentDataDAO;
 import model.bean.StudentCsvBean;
 
@@ -21,6 +24,12 @@ public class StuEmpLogic {
 		return boo;
 	}
 	
+	// 就職データ取得（全員分）
+		public List<StudentCsvBean> getEmpDataList() {
+			List<StudentCsvBean> sEmpDataList = new ArrayList<>();
+			sEmpDataList = dao.getEmpDataList();
+			return sEmpDataList;
+		}
 	
 	
 }

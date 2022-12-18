@@ -69,7 +69,8 @@ public class StudentCsvBean implements Serializable {
 		this.position = position;
 		this.decidedDate = decidedDate;
 	}
-		
+	
+	
 	// getter/setter
 	public int getId() {
 		return id;

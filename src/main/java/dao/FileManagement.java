@@ -1,13 +1,24 @@
-//package dao;
-//
-//import java.io.BufferedReader;
-//import java.io.File;
-//import java.io.FileReader;
-//import java.io.IOException;
-//
-//import model.bean.StudentCsvBean;
-//
-//public class FileManagement {
+package dao;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import model.bean.StudentCsvBean;
+
+public class FileManagement {
+	// 文字コード
+	private static final String CHARSET = "UTF-8";
+	// 改行コード
+	private static final String LF = "\n";
+	// 区切り文字（カンマ）
+	private static final String COMMA = ",";
 //
 //	// csvファイル読み込み
 //	public StudentCsvBean[] csvReader() {
@@ -95,14 +106,60 @@
 ////	}
 //	
 //	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//}
+	
+	public void csvWriter(File file, StudentCsvBean[] empData) {
+		
+		PrintWriter pw = null;
+		BufferedWriter bw = null;
+		OutputStreamWriter osw = null;
+		FileOutputStream fos = null;
+		
+        try {
+        		fos = new FileOutputStream(file);
+        		// BOM付き
+        		// EF
+        		fos.write(0xef);
+                // BB
+                fos.write(0xbb);
+                // BF
+                fos.write(0xbf);
+        	
+                osw = new OutputStreamWriter(fos, CHARSET);
+                bw = new BufferedWriter(osw);
+                pw = new PrintWriter(file);
+        	
+        	// ヘッダ情報リスト
+        	List<String> headerList = new ArrayList<String>(Arrays.asList("入力", "科名", "氏名", "管轄", "新卒", "適用", "ジョブカード", "希望地", "就職先", "実習先", "勤務地住所", "雇用形態", "雇用保険", "雇用期間", "就職経路", "関連", "職種"));
+        	
+ 
+        	for(String header: headerList) {
+        		pw.print(header);
+        		pw.print(COMMA);
+        	}
+        		pw.println("内定日");
+        	
+        	pw.flush();
+        	
+        } catch (IOException | IllegalArgumentException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (bw != null) {
+					bw.close();
+				}
+				if (osw != null) {
+					osw.close();
+				}
+				if (fos != null) {
+					fos.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+}
+
+
+
