@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -80,6 +81,7 @@ public class StuinfoServlet extends HttpServlet {
 		boolean boo = false;
 		RequestDispatcher dispatcher;
 		StuInfoLogic sl = new StuInfoLogic();
+		List<StudentBean> stuList = new ArrayList<>();
 		
 		// リクエストパラメータの取得
 		request.setCharacterEncoding("UTF-8");
@@ -88,6 +90,7 @@ public class StuinfoServlet extends HttpServlet {
 		
 		if(hoge.equals("foo")) {
 			String code = request.getParameter("id");
+			System.out.println(code);
 			switch(btn) {	
 				case "edit":
 					int id = Integer.parseInt(code);
@@ -112,14 +115,23 @@ public class StuinfoServlet extends HttpServlet {
 					break;
 			}
 		} else {
+			String sid = request.getParameter("id");
+			stu.setId(Integer.parseInt(sid));
 			stu.setNo(request.getParameter("no"));
 			stu.setName(request.getParameter("name"));
 			stu.setState(request.getParameter("state"));
 			stu.setCoName(request.getParameter("coName"));
 			
+		
+			
 			switch(btn) {
 			case "register":
 				boo = stuinfo.insertStudent(stu);
+				
+				// 就活状況の取得
+				stuList = sl.findAccount();
+				// リクエストスコープに保存
+				request.setAttribute("stulist", stuList);
 				// stuinfo.jspへフォワード
 				dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinfo.jsp");
 				dispatcher.forward(request, response);	
@@ -127,6 +139,11 @@ public class StuinfoServlet extends HttpServlet {
 				
 			case "update":
 				boo = stuinfo.updateStudent(stu);
+				
+				// 就活状況の取得
+				stuList = sl.findAccount();
+				// リクエストスコープに保存
+				request.setAttribute("stulist", stuList);
 				// stuinfo.jspへフォワード
 				dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinfo.jsp");
 				dispatcher.forward(request, response);	
@@ -134,6 +151,11 @@ public class StuinfoServlet extends HttpServlet {
 				
 			case "delete":
 				boo = stuinfo.deleteStudent(stu);
+				
+				// 就活状況の取得
+				stuList = sl.findAccount();
+				// リクエストスコープに保存
+				request.setAttribute("stulist", stuList);
 				// stuinfo.jspへフォワード
 				dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinfo.jsp");
 				dispatcher.forward(request, response);	

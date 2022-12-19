@@ -88,10 +88,10 @@
 			<thead>
 				<tr>
 					<th>id</th>
-					<th>no</th>
-					<th>name</th>
-					<th>state</th>
-					<th>co_name</th>
+					<th>番号</th>
+					<th>名前</th>
+					<th>就活状況</th>
+					<th>企業名</th>
 					<th>編集</th>
 					<th>削除</th>
 				</tr>

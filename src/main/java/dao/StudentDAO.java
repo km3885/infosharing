@@ -134,11 +134,12 @@ public class StudentDAO {
 			pStmt.setString(1, stu.getName());
 			pStmt.setString(2, stu.getstate());
 			pStmt.setString(3, stu.getCoName());
-			
 			pStmt.setInt(4, stu.getId());
 
 			// UPDATE文を実行し、結果票を取得
 			int result = pStmt.executeUpdate();
+			
+			
 			//
 			System.out.print(result);
 			
