@@ -232,7 +232,7 @@ function check(){
 						</c:forEach>						
 					</select></label></p>
 				<p><label>職種 <input type="text" name="position" value="${stuselect.position}"></label></p>
-				<p><label>内定日 <input type="text" name="decidedDate" value="${stuselect.decidedDate}"></label></p>
+				<p><label>内定日 <input type="date" name="decidedDate" value="${stuselect.decidedDate}"  min="2018-01-01" max="2023-12-31"></label></p>
 				<p><button type="submit" name="btn" value="update">更新</button></p>
 			</form>
 			
