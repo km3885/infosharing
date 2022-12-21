@@ -13,6 +13,7 @@
 <link href="https://use.fontawesome.com/releases/v6.2.0/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="./css/common.css">
 <link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/stuinfo.css">
 <title>訓練生情報</title>
 </head>
 
@@ -108,13 +109,15 @@
 						<td>
 							<form action="<%=request.getContextPath()%>/StuinfoServlet?hoge=foo"method="post">
 								<input type="hidden" name="id" value="${item.id}">
-								<input type="submit" name="btn" value="&#xf304; edit" class="fa"><ion-icon name="pencil-outline"></ion-icon>
+								<input type="hidden" name="btn" value="edit">
+								<input type="submit" name="piyo" value="&#xf304;" class="fas"><ion-icon name="pencil-outline"></ion-icon>
 							</form>
 						</td>
 						<td>
 							<form action="<%=request.getContextPath()%>/StuinfoServlet?hoge=foo"method="post">
 								<input type="hidden" name="id" value="${item.id}">
-								<input type="submit" name="btn" value="&#xf2ed; trash" class="fa"><ion-icon name="trash-outline"></ion-icon>
+								<input type="hidden" name="btn" value="trash">
+								<input type="submit" name="piyo" value="&#xf2ed;" class="fa"><ion-icon name="trash-outline"></ion-icon>
 							</form>
 						</td>
 					</tr>

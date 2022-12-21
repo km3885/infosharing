@@ -11,6 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./css/common.css">
 <link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/stuinfo.css">
 <title>訓練生情報2</title>
 
 <script type="text/javascript"> 
