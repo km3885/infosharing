@@ -15,9 +15,17 @@
 <link rel="stylesheet" href="./css/style.css">
 <link rel="stylesheet" href="./css/stuinfo.css">
 <title>訓練生情報</title>
+<script type="text/javascript">
+function msgdisp() {
+	/* msgがあればアラートを出力 */
+	if (${msg != null}) {
+		window.alert(${msg});
+	}
+}
+</script>
 </head>
 
-<body>
+<body onload="msgdisp()">
 	<!-- header -->
 	<jsp:include page="header.jsp" />
 
