@@ -10,7 +10,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./css/common.css">
-<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/stuManagement.css">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
 <title>訓練生情報</title>
 </head>
 
@@ -54,7 +59,7 @@
 	
 			
 			<form action="ManagementServlet" method="post">
-				<button type="submit" name="btn" value="edit">編集する</button>
+				<button type="submit" name="btn" value="edit" class="btn btn-primary">編集する</button>
 			<table>
 				<thead>
 					<tr>

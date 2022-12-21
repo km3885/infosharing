@@ -1,0 +1,29 @@
+/* stuManagement.jsp用CSS */
+
+@charset "UTF-8";
+h2 {
+	padding-top: 15px;
+	text-align: center;
+}
+
+.main-p {
+	margin-left: 15px;
+}
+
+.main-btn {
+	margin-left: 15px;
+	display: flex;
+}
+
+.main-table {
+	margin: 10px;
+}
+
+th {
+	varti
+	white-space: nowrap;
+}
+
+td {
+	white-space: nowrap;
+}

@@ -15,43 +15,45 @@
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/common.css">
 <link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/styleadmin.css">
 <link rel="stylesheet" href="./css/styleadmin.css">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 <title>訓練生情報</title>
 </head>
 
-<body>
-	<!-- header -->
-	<jsp:include page="header.jsp" />
+  <body>
+  	<!-- ヘッダー -->
+    <jsp:include page="header.jsp" />
+    <div class="col">
+    <!-- サイドバー -->
+    <div class="navigation">
+        <ul>
+            <li class="list active"><a href="TopServlet"> <span class="icon">
+                  <ion-icon name="home-outline"></ion-icon>
+                </span> <span class="title">ホーム</span>
+              </a></li>
+            <li class="list"><a href="StuinfoServlet?btn=normal"><span class="icon">
+                  <ion-icon name="walk-outline"></ion-icon>
+                </span> <span class="title">就活状況管理</span>
+              </a></li>
+            <li class="list"><a href="ManagementServlet"> <span class="icon">
+                  <ion-icon name="people-circle-outline"></ion-icon>
+                </span> <span class="title">訓練生情報管理</span>
+              </a></li>
+            <li class="list"><a href="AccessInfoServlet"> <span class="icon">
+                  <ion-icon name="shield-checkmark-outline"></ion-icon>
+                </span> <span class="title">アクセス権限管理</span>
+              </a></li>
+            <li class="btn-logout"><a href="LogoutServlet" onclick="return confirm('ログアウトしてもよろしいですか？');"> <span class="icon">
+                  <ion-icon name="log-out-outline"></ion-icon>
+                </span> <span class="title">ログアウト</span>
+              </a></li>
+          </ul>
+    </div>
 
-
-	<div class="col">
-		<!-- サイドメニュー -->
-		<aside class="navigation">
-			<ul>
-				<li class="list active"><a href="TopServlet"> <span
-						class="icon"> <ion-icon name="home-outline"></ion-icon>
-					</span> <span class="title">ホーム</span>
-				</a></li>
-				<li class="list"><a href="StuinfoServlet?btn=normal"><span
-						class="icon"><ion-icon name="walk-outline"></ion-icon> 
-					</span> <span class="title">就活状況管理</span>
-				</a></li>
-				<li class="list"><a href="ManagementServlet"> <span
-						class="icon"> <ion-icon name="people-circle-outline"></ion-icon>
-					</span> <span class="title">訓練生情報管理</span>
-				</a></li>
-				<li class="list"><a href="AccessInfoServlet"> <span
-						class="icon"> <ion-icon name="shield-checkmark-outline"></ion-icon>
-					</span> <span class="title">アクセス権限管理</span>
-				</a></li>
-				<li class="btn-logout"><a href="LogoutServlet" onclick="return confirm('ログアウトしてもよろしいですか？');"> <span
-						class="icon"> <ion-icon name="log-out-outline"></ion-icon>
-					</span> <span class="title">ログアウト</span>
-				</a></li>
-			</ul>
-		</aside>
-
-		<!-- コンテンツ -->
+    <!-- コンテンツ -->
 		<!-- メイン -->
 		<article class="main">
 			<h1>就職活動状況</h1>
@@ -190,21 +192,35 @@
 
 		<!-- 掲示板 -->
 		<section class="side">
-			<h1>About</h1>
+			<h1>お知らせ</h1>
 			<p>メッセージ</p>
 		</section>
-	</div>
+		</div>
+		<jsp:include page="footer.jsp" />
 
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script>
+      const list = document.querySelectorAll(".list");
+      console.log(list);
+      function activeLink() {
+        list.forEach((item) =>
+          // console.log(item);
+          item.classList.remove("active")
+        );
+        this.classList.add("active");
+      }
 
-	<jsp:include page="footer.jsp" />
-
-	<!-- <script src="js/main.js"></script> -->
-
-	<script type="module"
-		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-	<script nomodule
-		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-</body>
+      list.forEach((item) => {
+        item.addEventListener("click", activeLink);
+      });
+    </script>
+  </body>
 
 </html>
