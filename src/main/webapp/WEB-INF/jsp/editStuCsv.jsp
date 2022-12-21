@@ -42,13 +42,13 @@ function check(){
 		<!-- サイドメニュー -->
 		<aside class="navigation">
 			<ul>
-				<li class="list"><a href="TopServlet"> <span
-						class="icon"> <ion-icon name="home-outline"></ion-icon>
+				<li class="list"><a href="TopServlet"> <span class="icon">
+							<ion-icon name="home-outline"></ion-icon>
 					</span> <span class="title">ホーム</span>
 				</a></li>
 				<li class="list"><a href="StuinfoServlet?btn=normal"> <span
-						class="icon"><ion-icon name="walk-outline"></ion-icon> 
-					</span> <span class="title">就活状況管理</span>
+						class="icon"><ion-icon name="walk-outline"></ion-icon> </span> <span
+						class="title">就活状況管理</span>
 				</a></li>
 				<li class="list active"><a href="ManagementServlet"> <span
 						class="icon"> <ion-icon name="people-circle-outline"></ion-icon>
@@ -58,7 +58,8 @@ function check(){
 						class="icon"> <ion-icon name="shield-checkmark-outline"></ion-icon>
 					</span> <span class="title">アクセス権限管理</span>
 				</a></li>
-				<li class="btn-logout"><a href="LogoutServlet" onclick="return confirm('ログアウトしてもよろしいですか？');"> <span
+				<li class="btn-logout"><a href="LogoutServlet"
+					onclick="return confirm('ログアウトしてもよろしいですか？');"> <span
 						class="icon"> <ion-icon name="log-out-outline"></ion-icon>
 					</span> <span class="title">ログアウト</span>
 				</a></li>
@@ -69,173 +70,212 @@ function check(){
 		<div class="col_2 stu-col2">
 			<h2>訓練生情報管理</h2>
 			Edit画面
-			
-			<form action="ManagementServlet" method="post" onSubmit="return check()">
-				<p><label>入力 <input type="text" name="id" value="${stuselect.id}"></label></p>
-				<p><label>科名 
-					<select name="category">
-						<c:forEach var="item" items="${categorylist}">
-							<c:choose>
-								<c:when test="${item == stuselect.category}">
-									<option selected>${item}</option>
-								</c:when>
-								<c:otherwise>
-									<option>${item}</option>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>						
-					</select></label></p>
-				<p><label>氏名 <input type="text" name="name" value="${stuselect.name}"></label></p>
-				<p><label>管轄 
-					<select name="jurisdiction">
-						<c:forEach var="item" items="${jurisdictionlist}">
-							<c:choose>
-								<c:when test="${item == stuselect.jurisdiction}">
-									<option selected>${item}</option>
-								</c:when>
-								<c:otherwise>
-									<option>${item}</option>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>						
-					</select></label></p>
-				<p><label>新卒 
-					<select name="newGrad">
-						<c:forEach var="item" items="${newGradlist}">
-							<c:choose>
-								<c:when test="${item == stuselect.newGrad}">
-									<option selected>${item}</option>
-								</c:when>
-								<c:otherwise>
-									<option>${item}</option>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>						
-					</select></label></p>
-				<p><label>適用 
-					<select name="apply">
-						<c:forEach var="item" items="${applylist}">
-							<c:choose>
-								<c:when test="${item == stuselect.apply}">
-									<option selected>${item}</option>
-								</c:when>
-								<c:otherwise>
-									<option>${item}</option>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>						
-					</select></label></p>
-				<p><label>ジョブカード 
-					<select name="jobCard">
-						<c:forEach var="item" items="${jobCardlist}">
-							<c:choose>
-								<c:when test="${item == stuselect.jobCard}">
-									<option selected>${item}</option>
-								</c:when>
-								<c:otherwise>
-									<option>${item}</option>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>						
-					</select></label></p>
-				<p><label>希望地 
-					<select name="pref">
-						<c:forEach var="item" items="${preflist}">
-							<c:choose>
-								<c:when test="${item == stuselect.pref}">
-									<option selected>${item}</option>
-								</c:when>
-								<c:otherwise>
-									<option>${item}</option>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>						
-					</select></label></p>
-				<p><label>就職先 <input type="text" name="coName" value="${stuselect.coName}"></label></p>
-				<p><label>実習先 
-					<select name="internship">
-						<c:forEach var="item" items="${internshiplist}">
-							<c:choose>
-								<c:when test="${item == stuselect.internship}">
-									<option selected>${item}</option>
-								</c:when>
-								<c:otherwise>
-									<option>${item}</option>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>						
-					</select></label></p>
-				<p><label>勤務地住所 <input type="text" name="workAddress" value="${stuselect.workAddress}"></label></p>
-				<p><label>雇用形態 
-					<select name="empStatus">
-						<c:forEach var="item" items="${empStatuslist}">
-							<c:choose>
-								<c:when test="${item == stuselect.empStatus}">
-									<option selected>${item}</option>
-								</c:when>
-								<c:otherwise>
-									<option>${item}</option>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>						
-					</select></label></p>
-				<p><label>雇用保険 
-					<select name="empInsurance">
-						<c:forEach var="item" items="${empInsurancelist}">
-							<c:choose>
-								<c:when test="${item == stuselect.empInsurance}">
-									<option selected>${item}</option>
-								</c:when>
-								<c:otherwise>
-									<option>${item}</option>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>						
-					</select></label></p>
-				<p><label>雇用期間 
-					<select name="empperiod">
-						<c:forEach var="item" items="${empperiodlist}">
-							<c:choose>
-								<c:when test="${item == stuselect.empperiod}">
-									<option selected>${item}</option>
-								</c:when>
-								<c:otherwise>
-									<option>${item}</option>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>						
-					</select></label></p>
-				<p><label>就職経路 
-					<select name="empRoute">
-						<c:forEach var="item" items="${empRoutelist}">
-							<c:choose>
-								<c:when test="${item == stuselect.empRoute}">
-									<option selected>${item}</option>
-								</c:when>
-								<c:otherwise>
-									<option>${item}</option>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>						
-					</select></label></p>
-				<p><label>関連 
-					<select name="relation">
-						<c:forEach var="item" items="${relationlist}">
-							<c:choose>
-								<c:when test="${item == stuselect.relation}">
-									<option selected>${item}</option>
-								</c:when>
-								<c:otherwise>
-									<option>${item}</option>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>						
-					</select></label></p>
-				<p><label>職種 <input type="text" name="position" value="${stuselect.position}"></label></p>
-				<p><label>内定日 <input type="date" name="decidedDate" value="${stuselect.decidedDate}"  min="2018-01-01" max="2023-12-31"></label></p>
-				<p><button type="submit" name="btn" value="update">更新</button></p>
+
+			<form action="ManagementServlet" method="post"
+				onSubmit="return check()">
+				<p>
+					<label>入力 <input type="text" name="id"
+						value="${stuselect.id}"></label>
+				</p>
+				<p>
+					<label>科名 <select name="category">
+							<c:forEach var="item" items="${categorylist}">
+								<c:choose>
+									<c:when test="${item == stuselect.category}">
+										<option selected>${item}</option>
+									</c:when>
+									<c:otherwise>
+										<option>${item}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+					</select></label>
+				</p>
+				<p>
+					<label>氏名 <input type="text" name="name"
+						value="${stuselect.name}"></label>
+				</p>
+				<p>
+					<label>管轄 <select name="jurisdiction">
+							<c:forEach var="item" items="${jurisdictionlist}">
+								<c:choose>
+									<c:when test="${item == stuselect.jurisdiction}">
+										<option selected>${item}</option>
+									</c:when>
+									<c:otherwise>
+										<option>${item}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+					</select></label>
+				</p>
+				<p>
+					<label>新卒 <select name="newGrad">
+							<c:forEach var="item" items="${newGradlist}">
+								<c:choose>
+									<c:when test="${item == stuselect.newGrad}">
+										<option selected>${item}</option>
+									</c:when>
+									<c:otherwise>
+										<option>${item}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+					</select></label>
+				</p>
+				<p>
+					<label>適用 <select name="apply">
+							<c:forEach var="item" items="${applylist}">
+								<c:choose>
+									<c:when test="${item == stuselect.apply}">
+										<option selected>${item}</option>
+									</c:when>
+									<c:otherwise>
+										<option>${item}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+					</select></label>
+				</p>
+				<p>
+					<label>ジョブカード <select name="jobCard">
+							<c:forEach var="item" items="${jobCardlist}">
+								<c:choose>
+									<c:when test="${item == stuselect.jobCard}">
+										<option selected>${item}</option>
+									</c:when>
+									<c:otherwise>
+										<option>${item}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+					</select></label>
+				</p>
+				<p>
+					<label>希望地 <select name="pref">
+							<c:forEach var="item" items="${preflist}">
+								<c:choose>
+									<c:when test="${item == stuselect.pref}">
+										<option selected>${item}</option>
+									</c:when>
+									<c:otherwise>
+										<option>${item}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+					</select></label>
+				</p>
+				<p>
+					<label>就職先 <input type="text" name="coName"
+						value="${stuselect.coName}"></label>
+				</p>
+				<p>
+					<label>実習先 <select name="internship">
+							<c:forEach var="item" items="${internshiplist}">
+								<c:choose>
+									<c:when test="${item == stuselect.internship}">
+										<option selected>${item}</option>
+									</c:when>
+									<c:otherwise>
+										<option>${item}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+					</select></label>
+				</p>
+				<p>
+					<label>勤務地住所 <input type="text" name="workAddress"
+						value="${stuselect.workAddress}"></label>
+				</p>
+				<p>
+					<label>雇用形態 <select name="empStatus">
+							<c:forEach var="item" items="${empStatuslist}">
+								<c:choose>
+									<c:when test="${item == stuselect.empStatus}">
+										<option selected>${item}</option>
+									</c:when>
+									<c:otherwise>
+										<option>${item}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+					</select></label>
+				</p>
+				<p>
+					<label>雇用保険 <select name="empInsurance">
+							<c:forEach var="item" items="${empInsurancelist}">
+								<c:choose>
+									<c:when test="${item == stuselect.empInsurance}">
+										<option selected>${item}</option>
+									</c:when>
+									<c:otherwise>
+										<option>${item}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+					</select></label>
+				</p>
+				<p>
+					<label>雇用期間 <select name="empperiod">
+							<c:forEach var="item" items="${empperiodlist}">
+								<c:choose>
+									<c:when test="${item == stuselect.empperiod}">
+										<option selected>${item}</option>
+									</c:when>
+									<c:otherwise>
+										<option>${item}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+					</select></label>
+				</p>
+				<p>
+					<label>就職経路 <select name="empRoute">
+							<c:forEach var="item" items="${empRoutelist}">
+								<c:choose>
+									<c:when test="${item == stuselect.empRoute}">
+										<option selected>${item}</option>
+									</c:when>
+									<c:otherwise>
+										<option>${item}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+					</select></label>
+				</p>
+				<p>
+					<label>関連 <select name="relation">
+							<c:forEach var="item" items="${relationlist}">
+								<c:choose>
+									<c:when test="${item == stuselect.relation}">
+										<option selected>${item}</option>
+									</c:when>
+									<c:otherwise>
+										<option>${item}</option>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+					</select></label>
+				</p>
+				<p>
+					<label>職種 <input type="text" name="position"
+						value="${stuselect.position}"></label>
+				</p>
+				<p>
+					<label>内定日 <input type="date" name="decidedDate"
+						value="${stuselect.decidedDate}" min="2018-01-01" max="2023-12-31"></label>
+				</p>
+				<p>
+					<button type="submit" name="btn" value="update">更新</button>
+				</p>
 			</form>
-			
+			<!-- 就活状況管理へ戻る -->
+			<form action="StuinfoServlet" method="get">
+				<p>
+					<button type="submit" name="btn" value="normal">戻る</button>
+				</p>
+			</form>
+
 		</div>
 	</div>
 
@@ -250,7 +290,7 @@ function check(){
 	<script nomodule
 		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-	
+
 </body>
 
 </html>

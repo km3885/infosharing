@@ -126,12 +126,27 @@ public class StuinfoServlet extends HttpServlet {
 			
 			switch(btn) {
 			case "register":
+				// 訓練生新規登録処理
 				boo = stuinfo.insertStudent(stu);
+				// booがfalse(新規登録失敗)の場合、再度新規登録画面に戻る
+				if (boo==false) {
+					// メッセージをリクエストスコープに保存
+					String msg = "新規登録失敗しました";
+					request.setAttribute("msg", msg);
+					// register.jspへフォワード
+					dispatcher = request.getRequestDispatcher("WEB-INF/jsp/register.jsp");
+					dispatcher.forward(request, response);	
+					break;
+				}
 				
+				// booがfalse(新規登録成功)の場合、就活状況管理画面へフォワード
 				// 就活状況の取得
 				stuList = sl.findAccount();
-				// リクエストスコープに保存
+				// リクエストスコープに最新の訓練生情報を保存
 				request.setAttribute("stulist", stuList);
+				// メッセージをリクエストスコープに保存
+				String msg = "新規登録成功しました";
+				request.setAttribute("msg", msg);
 				// stuinfo.jspへフォワード
 				dispatcher = request.getRequestDispatcher("WEB-INF/jsp/stuinfo.jsp");
 				dispatcher.forward(request, response);	

@@ -31,10 +31,18 @@ function check(){
 
 }
 
+function msgdisp() {
+	/* msgがあればアラートを出力 */
+	if (${msg != null}) {
+		window.alert(${msg});
+		}
+		
+}
+
 </script>
 </head>
 
-<body>
+<body onload="msgdisp()">
 	<!-- header -->
 	<jsp:include page="header.jsp" />
 
@@ -72,8 +80,8 @@ function check(){
 			
 			<form action="StuinfoServlet?hoge=bar" method="post" onSubmit="return check()">
 				<p><label>ID <input type="text" name="id" value="${stu1.id}"></label></p>
-				<p><label>番号 <input type="text" name="no" value="${stu1.no}"></label></p>
-				<p><label>名前 <input type="text" name="name" value="${stu1.name}"></label></p>
+				<p><label>番号 <input type="text" name="no" value="${stu1.no}" required="required"></label></p>
+				<p><label>名前 <input type="text" name="name" value="${stu1.name}" required="required"></label></p>
 				<p><label>就活状況
 					<select name="state">
 						<c:forEach var="item" items="${selectlist}">
@@ -92,6 +100,10 @@ function check(){
 				<p><button type="submit" name="btn" value="register">登録</button></p>
 			</form>
 			
+			<!-- 就活状況管理へ戻る -->
+			<form action="StuinfoServlet" method="get">
+				<p><button type="submit" name="btn" value="normal">戻る</button></p>
+			</form>
 		</div>
 	</div>
 

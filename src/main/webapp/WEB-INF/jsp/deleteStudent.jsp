@@ -42,12 +42,12 @@ function check(){
 		<!-- サイドメニュー -->
 		<aside class="navigation">
 			<ul>
-				<li class="list"><a href="TopServlet"> <span
-						class="icon"> <ion-icon name="home-outline"></ion-icon>
+				<li class="list"><a href="TopServlet"> <span class="icon">
+							<ion-icon name="home-outline"></ion-icon>
 					</span> <span class="title">ホーム</span>
 				</a></li>
-				<li class="list active"><a href="StuinfoServlet?btn=normal"> <span
-						class="icon"><ion-icon name="walk-outline"></ion-icon> 
+				<li class="list active"><a href="StuinfoServlet?btn=normal">
+						<span class="icon"><ion-icon name="walk-outline"></ion-icon>
 					</span> <span class="title">就活状況管理</span>
 				</a></li>
 				<li class="list"><a href="ManagementServlet"> <span
@@ -58,7 +58,8 @@ function check(){
 						class="icon"> <ion-icon name="shield-checkmark-outline"></ion-icon>
 					</span> <span class="title">アクセス権限管理</span>
 				</a></li>
-				<li class="btn-logout"><a href="LogoutServlet" onclick="return confirm('ログアウトしてもよろしいですか？');"> <span
+				<li class="btn-logout"><a href="LogoutServlet"
+					onclick="return confirm('ログアウトしてもよろしいですか？');"> <span
 						class="icon"> <ion-icon name="log-out-outline"></ion-icon>
 					</span> <span class="title">ログアウト</span>
 				</a></li>
@@ -69,36 +70,54 @@ function check(){
 		<div class="col_2 stu-col2">
 			<h2>訓練生情報管理</h2>
 			Edit画面
-			
-			<form action="StuinfoServlet?hoge=bar" method="post" onSubmit="return check()">
-				
+
+			<form action="StuinfoServlet?hoge=bar" method="post"
+				onSubmit="return check()">
+
 				<table>
 					<tbody>
 						<tr>
 							<th>ID</th>
-							<td><input type="hidden" name="id" value="${trashStu.id}"><c:out value="${trashStu.id}" /></td>
+							<td><input type="hidden" name="id" value="${trashStu.id}">
+							<c:out value="${trashStu.id}" /></td>
 						</tr>
 						<tr>
 							<th>番号</th>
-							<td><input type="hidden" name="no" value="${trashStu.no}"><c:out value="${trashStu.no}" /></td>
+							<td><input type="hidden" name="no" value="${trashStu.no}">
+							<c:out value="${trashStu.no}" /></td>
 						</tr>
 						<tr>
 							<th>名前</th>
-							<td><input type="hidden" name="name" value="${trashStu.name}"><c:out value="${trashStu.name}" /></td>
+							<td><input type="hidden" name="name"
+								value="${trashStu.name}">
+							<c:out value="${trashStu.name}" /></td>
 						</tr>
 						<tr>
 							<th>就活状況</th>
-							<td><input type="hidden" name="state" value="${trashStu.state}"><c:out value="${trashStu.state}" /></td>
+							<td><input type="hidden" name="state"
+								value="${trashStu.state}">
+							<c:out value="${trashStu.state}" /></td>
 						</tr>
 						<tr>
 							<th>企業名</th>
-							<td><input type="hidden" name="coName" value="${trashStu.coName}"><c:out value="${trashStu.coName}" /></td>
+							<td><input type="hidden" name="coName"
+								value="${trashStu.coName}">
+							<c:out value="${trashStu.coName}" /></td>
 						</tr>
 					</tbody>
 				</table>
-				<p><button type="submit" name="btn" value="delete">削除</button></p>
+				<p>
+					<button type="submit" name="btn" value="delete">削除</button>
+				</p>
 			</form>
-			
+
+			<!-- 就活状況管理へ戻る -->
+			<form action="StuinfoServlet" method="get">
+				<p>
+					<button type="submit" name="btn" value="normal">戻る</button>
+				</p>
+			</form>
+
 		</div>
 	</div>
 
@@ -113,7 +132,7 @@ function check(){
 	<script nomodule
 		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-	
+
 </body>
 
 </html>
