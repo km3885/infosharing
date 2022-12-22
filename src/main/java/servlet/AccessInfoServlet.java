@@ -21,24 +21,35 @@ public class AccessInfoServlet extends HttpServlet {
      */
     public AccessInfoServlet() {
         super();
-        // TODO Auto-generated constructor stub
+   
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// accessinfo.jspへフォワード
+		// リクエストパラメータの取得
+		request.setCharacterEncoding("UTF-8");
+		String userId = request.getParameter("id");
+		
+		if (userId == null) {
+			// accessinfo.jspへフォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/accessinfo.jsp");
-			dispatcher.forward(request, response);
+			dispatcher.forward(request, response);			
+		} else {
+			// edit.jspへフォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/edit.jsp");
+			dispatcher.forward(request, response);	
+		}
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		// 
+		
 	}
 
 }

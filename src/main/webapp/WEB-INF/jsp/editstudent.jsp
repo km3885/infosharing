@@ -1,4 +1,4 @@
-<!-- アクセス権限管理画面 -->
+<!-- 訓練生情報編集画面 -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -11,7 +11,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./css/common.css">
 <link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/stuinfo.css">
 <title>訓練生情報</title>
+
+<script type="text/javascript"> 
+
+function check(){
+
+	if(window.confirm( ${stu1.no} + '\n送信してよろしいですか？')){ // 確認ダイアログを表示
+
+		return true; // 「OK」時は送信を実行
+
+	}
+	else{ // 「キャンセル」時の処理
+
+		window.alert('キャンセルされました'); // 警告ダイアログを表示
+		return false; // 送信を中止
+
+	}
+
+}
+
+</script>
 </head>
 
 <body>
@@ -26,7 +47,7 @@
 						class="icon"> <ion-icon name="home-outline"></ion-icon>
 					</span> <span class="title">ホーム</span>
 				</a></li>
-				<li class="list"><a href="StuinfoServlet?btn=normal"> <span
+				<li class="list active"><a href="StuinfoServlet?btn=normal"> <span
 						class="icon"><ion-icon name="walk-outline"></ion-icon> 
 					</span> <span class="title">就活状況管理</span>
 				</a></li>
@@ -34,7 +55,7 @@
 						class="icon"> <ion-icon name="people-circle-outline"></ion-icon>
 					</span> <span class="title">訓練生情報管理</span>
 				</a></li>
-				<li class="list active"><a href="AccessInfoServlet"> <span
+				<li class="list"><a href="AccessInfoServlet"> <span
 						class="icon"> <ion-icon name="shield-checkmark-outline"></ion-icon>
 					</span> <span class="title">アクセス権限管理</span>
 				</a></li>
@@ -47,48 +68,31 @@
 
 		<!-- コンテンツ -->
 		<div class="col_2 stu-col2">
-			<h2>アクセス権限管理</h2>
+			<h2>訓練生情報管理</h2>
+			Edit画面
 			
-			<table class="user-table">
-				<thead>
-					<tr>
-						<th>ユーザ名</th>
-						<th>ユーザID</th>
-						<th>参照</th>
-						<th>登録</th>
-						<th>更新</th>
-						<th>削除</th>
-						<th></th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
-				<c:forEach var="item" items="${userlist}">
-				<c:if test="${item.role == true}" var="flg"></c:if>
-				<c:choose>
-					<c:when test="${flg}">
-						<c:set var="result" value="〇"></c:set>
-					</c:when>
-					<c:otherwise>
-						<c:set var="result" value=""></c:set>
-					</c:otherwise>
-				</c:choose>
-					<tr>
-						<td><c:out value="${item.userName}" /></td>
-						<td><c:out value="${item.loginId}" /></td>
-						<td><c:out value="〇" /></td>
-						<td><c:out value="${result}" /></td>
-						<td><c:out value="${result}" /></td>
-						<td><c:out value="${result}" /></td>
-						<td><a href="AccessInfoServlet?id=<c:out value="${item.loginId}" />"><ion-icon name="pencil-outline"></ion-icon></a></td>
-						<td><ion-icon name="trash-outline"></ion-icon></td>
-					</tr>
-				</c:forEach>
-				</tbody>
-			</table>
+			<form action="StuinfoServlet?hoge=bar" method="post" onSubmit="return check()">
+				<p><label>ID <input type="text" name="id" value="${editstu.id}"></label></p>
+				<p><label>番号 <input type="text" name="no" value="${editstu.no}"></label></p>
+				<p><label>名前 <input type="text" name="name" value="${editstu.name}"></label></p>
+				<p><label>就活状況
+					<select name="state">
+						<c:forEach var="item" items="${selectlist}">
+							<c:choose>
+								<c:when test="${item == editstu.state}">
+									<option selected>${item}</option>
+								</c:when>
+								<c:otherwise>
+									<option>${item}</option>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>						
+					</select>
+				</label></p>
+				<p><label>企業名 <input type="text" name="coName" value="${editstu.coName}"></label></p>
+				<p><button type="submit" name="btn" value="update">更新</button></p>
+			</form>
 			
-
-
 		</div>
 	</div>
 
@@ -102,9 +106,8 @@
 		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 	<script nomodule
 		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-	<script>
-		
-	</script>
+
+	
 </body>
 
 </html>

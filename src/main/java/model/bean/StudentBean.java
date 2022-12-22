@@ -7,22 +7,24 @@ public class StudentBean implements Serializable {
 		private String no;
 		private String name;
 		private String state;
+		private String coName;
 		
 		// コンストラクタ
 		public StudentBean() {
 		}
 		
 		// コンストラクタ引数1(no)
-		public StudentBean(String no) {
-			this.no = no;
+		public StudentBean(int id) {
+			this.id = id;
 		}
 		
-		 // コンストラクタ引数4(id, no, name, state)
-		public StudentBean(int id, String no, String name, String state) {
+		 // コンストラクタ引数5(id, no, name, state, coName)
+		public StudentBean(int id, String no, String name, String state, String coName) {
 			this.id = id;
 			this.no = no;
 			this.name = name;
 			this.state = state;
+			this.coName = coName;
 		}
 		
 		public int getId() {
@@ -57,8 +59,21 @@ public class StudentBean implements Serializable {
 			this.state = state;
 		}
 
+		public String getState() {
+			return state;
+		}
 
+		public void setState(String state) {
+			this.state = state;
+		}
 
-		
+		public String getCoName() {
+			return coName;
+		}
+
+		public void setCoName(String coName) {
+			this.coName = coName;
+		}
+
 
 }

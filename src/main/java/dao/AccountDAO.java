@@ -5,51 +5,166 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.bean.AccountBean;
-import model.bean.LoginBean;
 
 public class AccountDAO {
-	
+
 	// データベース接続に使用する情報
 	private static String RDB_DRIVE = "com.mysql.cj.jdbc.Driver";
 	private final String URL = "jdbc:mysql://localhost/sample";
 	private final String USER = "root";
 	private final String PASS = "";
-	
 
-	public AccountBean findByLogin(LoginBean login) {
+	// ログインした情報が一致するアカウントがあるか確認
+	public AccountBean findByLogin(AccountBean login) {
 		AccountBean account = null;
+		Connection con = null;
 
 		// データベースへ接続
 		try {
+			// Class.forName()メソッドにJDBCドライバ名を与えJDBCドライバをロード
 			Class.forName(RDB_DRIVE);
-			Connection con = DriverManager.getConnection(URL, USER, PASS);
-			
+
+			// 接続先の情報。引数:「JDMC接続先情報」,「ユーザー名」,「パスワード」
+			con = DriverManager.getConnection(URL, USER, PASS);
+
 			// SELECT文を準備
 			String sql = "SELECT login_id, password FROM users WHERE login_id = ? AND password = ?";
 			PreparedStatement pStmt = con.prepareStatement(sql);
-			pStmt.setString(1, login.getUserId());
+			pStmt.setString(1, login.getLoginId());
 			pStmt.setString(2, login.getPass());
-
+			
 			// SELECT文を実行し、結果票を取得
 			ResultSet rs = pStmt.executeQuery();
 
 			// 一致したユーザが存在した場合
 			// そのユーザを表すAccountインスタンスを生成
-				if (rs.next()) {
-					// 結果票からデータを取得
-					String userId = rs.getString("login_id");
-					String pass = rs.getString("password");
-					account = new AccountBean(userId, pass);
-				}
-			} catch (SQLException e) {
+			if (rs.next()) {
+				// 結果票からデータを取得
+				String userId = rs.getString("login_id");
+				String pass = rs.getString("password");
+				account = new AccountBean(userId, pass);
+			}
+		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
-			} catch (Exception e) {
-				System.out.println("JDBCデータベース接続エラー:" + e);
+		} catch (Exception e) {
+			System.out.println("JDBCデータベース接続エラー:" + e);
+		} finally {
+			try {
+				if (con != null) {
+					// データベースを切断
+					con.close();
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
-		// 見つかったユーザまたはnullを返す
-		return account;
 		}
+		//
+		return account;
+	}
+
+	// ログインしたアカウント情報を取得
+	public AccountBean getAccount(AccountBean login) {
+		AccountBean account = null;
+		Connection con = null;
+
+		// データベースへ接続
+		try {
+			// Class.forName()メソッドにJDBCドライバ名を与えJDBCドライバをロード
+			Class.forName(RDB_DRIVE);
+
+			// 接続先の情報。引数:「JDMC接続先情報」,「ユーザー名」,「パスワード」
+			con = DriverManager.getConnection(URL, USER, PASS);
+
+			// SELECT文を準備
+			String sql = "SELECT * FROM users WHERE login_id = ? AND password = ?";
+			PreparedStatement pStmt = con.prepareStatement(sql);
+			pStmt.setString(1, login.getLoginId());
+			pStmt.setString(2, login.getPass());
+
+			// SELECT文を実行し、結果票を取得
+			ResultSet rs = pStmt.executeQuery();
+
+			// そのユーザを表すAccountインスタンスを生成
+			if (rs.next()) {
+				// 結果票からデータを取得
+				String loginId = rs.getString("login_id");
+				String pass = rs.getString("password");
+				String userName = rs.getString("user_name");
+				boolean role = rs.getBoolean("role");
+				account = new AccountBean(loginId, pass, userName, role);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		} catch (Exception e) {
+			System.out.println("JDBCデータベース接続エラー:" + e);
+		} finally {
+			try {
+				if (con != null) {
+					// データベースを切断
+					con.close();
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		//
+		return account;
+	}
+	
+	// アカウント情報をすべて取得
+	public List<AccountBean> getAccountAll() {
+		List<AccountBean> accountList = new ArrayList<AccountBean>();
+		Connection con = null;
+
+		// データベースへ接続
+		try {
+			// Class.forName()メソッドにJDBCドライバ名を与えJDBCドライバをロード
+			Class.forName(RDB_DRIVE);
+
+			// 接続先の情報。引数:「JDMC接続先情報」,「ユーザー名」,「パスワード」
+			con = DriverManager.getConnection(URL, USER, PASS);
+
+			// SELECT文を準備
+			String sql = "SELECT login_id, user_name, role FROM users";
+			PreparedStatement pStmt = con.prepareStatement(sql);
+
+			// SELECT文を実行し、結果票を取得
+			ResultSet rs = pStmt.executeQuery();
+
+			// そのユーザ情報をリストに格納
+			while (rs.next()) {
+				// 結果票からデータを取得
+				String loginId = rs.getString("login_id");
+				String userName = rs.getString("user_name");
+				boolean role = rs.getBoolean("role");
+				AccountBean account = new AccountBean(loginId, userName, role);
+				accountList.add(account);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		} catch (Exception e) {
+			System.out.println("JDBCデータベース接続エラー:" + e);
+		} finally {
+			try {
+				if (con != null) {
+					// データベースを切断
+					con.close();
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		//
+		return accountList;
+	}
 }

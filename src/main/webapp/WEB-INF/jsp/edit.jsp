@@ -1,4 +1,4 @@
-<!-- アクセス権限管理画面 -->
+<!-- アクセス権限編集画面 -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>

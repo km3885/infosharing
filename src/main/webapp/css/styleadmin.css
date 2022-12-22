@@ -1,9 +1,16 @@
+/* index.jsp用CSS */
+
 @charset "UTF-8";
 
 /* メイン */
 .main {
   margin: 0;
   background-color: white;
+}
+
+h1 {
+	padding-top: 15px;
+	text-align: center;
 }
 
 .tab-wrap {
