@@ -19,6 +19,22 @@ h2 {
 	margin: 10px;
 }
 
+.col {
+	width: 100%;
+}
+
+.main-col {
+	margin: 0 auto;
+}
+
+.edit-form {
+	
+}
+
+.main-table {
+	margin: 0 auto;
+}
+
 th {
 	varti
 	white-space: nowrap;
@@ -26,4 +42,10 @@ th {
 
 td {
 	white-space: nowrap;
+}
+input.hoge {
+	width: 300px;
+}
+.hoge {
+	width: 300px;
 }

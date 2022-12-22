@@ -57,15 +57,16 @@
 			<p> 令和3年度 普通課程4科入校生（2年次） 入校式：令和3年4月12日（月）</p>
 			<p> 令和4年度入校式：令和4年4月11日（月）  前期修了式：令和4年9月27日（火）  後期入校式：令和4年10月3日（月）  修了式：令和5年3月10日（金）</p>
 	
-			
+			<div class="main-table" div style="height:80%; width:1200px;  overflow-y:scroll;">
 			<form action="ManagementServlet" method="post">
 				<button type="submit" name="btn" value="edit" class="btn btn-primary">編集する</button>
-			<table>
+				<p style="color:red;">※編集する訓練生を選択してください</p>
+			<table class="table table-striped ">
 				<thead>
 					<tr>
-					<th></th>
+					<th class="table-danger"></th>
 					<c:forEach var="item" items="${headerlist}">
-						<th><c:out value="${item}" /></th>
+						<th class="table-danger"><c:out value="${item}" /></th>
 					</c:forEach>
 					</tr>
 				</thead>
@@ -95,7 +96,7 @@
 					</c:forEach>
 				</tbody>
 			</table>
-			
+			</div>
 			</form>
 			
 		</div>

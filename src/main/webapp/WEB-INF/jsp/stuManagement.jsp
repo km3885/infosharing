@@ -69,7 +69,7 @@
 				onclick="location.href='FileMgmtServlet'">
 			</div>
 
-			<div class="main-table" div style="height:80%; width:1050px;  overflow-y:scroll;">
+			<div class="main-table" div style="height:80%; width:1200px;  overflow-y:scroll;">
 				<table class="table table-striped ">
 					<thead>
 						<tr>

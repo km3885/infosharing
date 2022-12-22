@@ -71,16 +71,15 @@ function check(){
 		<div class="col_2 stu-col2">
 			<h2>訓練生情報管理</h2>
 			Edit画面
-<<<<<<< HEAD
+
 			
 			<form action="StuinfoServlet?hoge=bar" method="post" onSubmit="return check()" class=".form-wrapper">
 				
-=======
 
 			<form action="StuinfoServlet?hoge=bar" method="post"
 				onSubmit="return check()">
 
->>>>>>> refs/remotes/origin/master
+
 				<table>
 					<tbody>
 						<tr>
