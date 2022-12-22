@@ -79,7 +79,7 @@ function msgdisp() {
 			<h2>訓練生情報管理</h2>
 			Edit画面
 			
-			<form action="StuinfoServlet?hoge=bar" method="post" onSubmit="return check()">
+			<form action="StuinfoServlet?hoge=bar" method="post" onSubmit="return check()" class="ope">
 				<p><label>ID <input type="text" name="id" value="${stu1.id}"></label></p>
 				<p><label>番号 <input type="text" name="no" value="${stu1.no}" required="required"></label></p>
 				<p><label>名前 <input type="text" name="name" value="${stu1.name}" required="required"></label></p>

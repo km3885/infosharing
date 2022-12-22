@@ -13,7 +13,7 @@
 <link href="https://use.fontawesome.com/releases/v6.2.0/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="./css/common.css">
 <link rel="stylesheet" href="./css/style.css">
-<link rel="stylesheet" href="./css/stuinfo.css">
+<link rel="stylesheet" href="./css/clearform.css">
 <title>訓練生情報</title>
 <script type="text/javascript">
 function msgdisp() {

@@ -1,128 +1,68 @@
 @charset "UTF-8";
 
-/* form要素のスタイルをリセット */
-
-select,
-button,
-input[type="submit"] {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	border: none;
-	outline: none;
-	background: transparent;
-}
-
-button,
-input[type="submit"] {
-	padding: 0;
-}
-
-input[type="text"] {
-	padding: 0;
-	border: none;
-	border-radius: 0;
-	outline: none;
-	background: none;
-}
+@import url(clearform.css); /* form解除用 */
 
 /* 追加スタイル */
-
-/* 訓練生情報管理画面 */
-table {
-	width: 100%;
-	text-align: center;
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-table th {
-	padding: 10px;
-	border-bottom: solid 4px #778ca3;
-	color: #778ca3;
-}
-table td {
-	padding: 10px;
-	/* border-bottom: solid 4px #778ca3; */
-}
-
-
-
-
-input.fas {
-	color: #0000ee;
-}
-
-input.fa {
-	color: #ed0000;
-}
-
-
-
-
-
-
-
-
-
+/*
 form {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 500px;
-  padding: 30px 30px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-}
 
+	margin: 0 auto;
+	width: 100%;
+	max-width: 500px;
+	
+	padding: 30px 30px;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+}
+*/
 p {
-  margin: 0 0 20px;
+	margin: 0 0 20px;
 }
 
 input,
 button,
 select {
-  font-size: 16px;
+	font-size: 16px;
 }
 
-input {
-  border: 1px solid #ddd;
-  border-radius: 5px;
+input[type="text"] {
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	margin: 10px;
+	padding: 10px;  
 }
-
-input {
-  margin: 10px;
-  padding: 10px;  
-}
-
+/* 
 select {
-  border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 5px;
-  background: #eee;
+	border: 1px solid #ddd;
+	padding: 10px;
+	border-radius: 5px;
+	background: #eee;
 }
 
 button {
-  text-align: center;
+	text-align: center;
 }
 
 button {
-  background: #4171a3;
-  padding: 10px 30px;
-  border-radius: 5px;
-  color: #fff;
-  border: none;
-  font-size: 16px;
-  margin-top: 15px;
+	background: #4171a3;
+	padding: 10px 30px;
+	border-radius: 5px;
+	color: #fff;
+	border: none;
+	font-size: 16px;
+	margin-top: 15px;
 }
 
 button:hover {
-  opacity: 0.7;
-  cursor: pointer;
+	opacity: 0.7;
+	cursor: pointer;
 }
 
+ */
 
-
-
-
-
-
-
+.ope {
+	margin: 20px;
+	padding: 30px 30px;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+}
