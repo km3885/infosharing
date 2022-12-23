@@ -118,14 +118,14 @@ function msgdisp() {
 							<form action="<%=request.getContextPath()%>/StuinfoServlet?hoge=foo"method="post">
 								<input type="hidden" name="id" value="${item.id}">
 								<input type="hidden" name="btn" value="edit">
-								<input type="submit" name="piyo" value="&#xf304;" class="fas"><ion-icon name="pencil-outline"></ion-icon>
+								<input type="submit" name="piyo" value="&#xf304;" class="fas">
 							</form>
 						</td>
 						<td>
 							<form action="<%=request.getContextPath()%>/StuinfoServlet?hoge=foo"method="post">
 								<input type="hidden" name="id" value="${item.id}">
 								<input type="hidden" name="btn" value="trash">
-								<input type="submit" name="piyo" value="&#xf2ed;" class="fa"><ion-icon name="trash-outline"></ion-icon>
+								<input type="submit" name="piyo" value="&#xf2ed;" class="fa">
 							</form>
 						</td>
 					</tr>
